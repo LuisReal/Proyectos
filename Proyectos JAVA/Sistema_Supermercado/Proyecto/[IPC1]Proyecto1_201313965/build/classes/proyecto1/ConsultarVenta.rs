@@ -1,9 +1,0 @@
-proyecto1.DatosProductos
-proyecto1.LaminaDatos$Eliminar
-proyecto1.LaminaDatosVentas$Eliminar
-proyecto1.LaminaDatosVentas
-proyecto1.ConsultarVenta
-proyecto1.LaminaDatos
-proyecto1.LaminaDatosProductos
-proyecto1.DatosVentas
-proyecto1.LaminaDatosProductos.Eliminar

@@ -1,7 +1,0 @@
-proyecto1.LaminaVentanaProductos$Modificar
-proyecto1.LaminaVentanaProductos$CargarProductos
-proyecto1.LaminaVentanaProductos$DashboardProductosOyente
-proyecto1.LaminaVentanaProductos$CreacionProductos
-proyecto1.LaminaVentanaProductos
-proyecto1.VentanaProductos
-proyecto1.LaminaVentanaProductos$ConsultarProductos
