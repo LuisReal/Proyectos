@@ -1,0 +1,138 @@
+
+
+.p-tablacanciones{
+    
+    
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    
+    border-color:rgb(154, 205, 50);;
+    border-width: 1px;
+    
+}
+
+
+.boton-back{
+    
+    top: 550;
+    left: 100px;
+    width: 100px;
+    height: 30px;
+    border-width: 1px;
+    background-color: white;
+    border-color: rgb(154, 205, 50);
+    color: black;
+    border-radius: 10px;
+    outline: none;
+}
+
+.comments-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.div-imagen{
+    
+    width: 340px;
+    
+}
+
+.div-comentario{
+    
+    width: 340px;
+    
+}
+
+.div-video{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:10px;
+
+    border-color: black;
+    border-style: groove;
+    width: 600px;
+    border: 5px solid rgba(0,200, 150, 0.5);
+}
+
+.label-comentario{
+
+    left: 10px;
+    
+}
+
+.text-area{
+
+    
+    border-color: black;
+    border-style: groove;
+    width: 340px;
+    height: 100px;
+
+}
+
+.btn-comentario{
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(1, 211, 218);
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-comentario:hover{
+    background-color: black;
+}
+.div-comentarios{
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 950px;
+    height: 100px;
+    border-color: black;
+    border-style: groove;
+    
+}
+
+.simple-comment{
+    margin-top: 10px;
+    background:rgba(0,200, 150, 0.5);
+    height: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.label-usuario{
+    
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100px;
+    height: 30px;
+    
+}
+
+.etiqueta-comentario{
+    
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 100px;
+    height: 30px;
+    
+}
+
+.p-tablacanciones{
+    margin-left: 50px;
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-color:rgb(154, 205, 50);;
+    border: none;
+}

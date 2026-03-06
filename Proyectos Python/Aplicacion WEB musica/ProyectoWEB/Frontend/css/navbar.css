@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.global-container {
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+
+.banner-izquierdo {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    width: 300px;
+    
+    background: linear-gradient(to right, #2c0596, #7bddfe);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.info-container {
+    grid-column: 2/7;
+    grid-row: 1/4;
+    margin: 0;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.foto-perfil {
+
+    margin-top: 50px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-image: url('../images/usuario.png');
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: -25px center;
+    
+}
+
+.nombre-usuario {
+    
+    text-align: center;
+    font-size: 15px;
+    background-color: red;
+    width: 100%;
+    height: 65px;
+}
+
+.botones-container {
+
+    margin-top: -50px;
+    width: 100%;
+    
+}
+
+.btn-pagina-principal {
+
+
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/casa.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+
+}
+
+.btn-pagina-principal:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-mi-perfil {
+
+
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/user.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-mi-perfil:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-usuarios {
+
+    width: 100%;
+    border-width: 1px;
+
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/usuarios.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-usuarios:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-comentarios {
+
+
+    width: 100%;
+    border-width: 1px;
+    background-color: white;
+    border-color: rgb(255, 0, 0);
+    border-style: groove;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/comentarios.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-comentarios:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-cargar-canciones {
+
+
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/cancion.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-cargar-canciones:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-solicitudes {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    color: white;
+    font-weight: 300;
+    height: 40px;
+    background: url('../images/cancion.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-solicitudes:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-playlist {
+
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/cancion.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-playlist:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-solicitar {
+
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(66, 216, 223, 0.9);
+    height: 40px;
+    background: url('../images/usuarios.png') 4px center, linear-gradient(to right, #2c0596, #7bddfe);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px center, center;
+    /* Ícono a la izquierda, gradiente centrado */
+    background-size: 25px, 100% 100%;
+
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.btn-solicitar:hover {
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+.boton-back {
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 100px;
+    height: 30px;
+    border-width: 1px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+.boton-back:hover {
+    background-color: black;
+}
+
+.boton-cerrarSesion{
+    
+    width: 100%;
+    height: 30px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.boton-cerrarSesion:hover{
+    background-color: black;
+}
+
+.btn-open-navbar,
+.btn-close-navbar {
+    width: 35px;
+    height: 35px;
+    border: none;
+    display: none;
+    color: black;
+    background-color: transparent;
+}
+
+@media(max-width : 480px) {
+    .btn-open-navbar {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        font-size: 2rem;
+        display: block;
+        z-index: 1;
+    }
+
+    .btn-close-navbar {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        font-size: 2rem;
+        color: white;
+        display: flex;
+        margin-left: -260px;
+        
+    }
+
+    .foto-perfil{
+        margin-top: -70px;
+    }
+
+    #banner-izquierdo {
+        display: none;
+    }
+
+    #banner-izquierdo.visible {
+        display: flex;
+        grid-column: 1 / 2;
+        grid-row: 1 / 6;
+        z-index: 1;
+
+    }
+
+    .info-container {
+        grid-column: 1/7;
+        grid-row: 1/4;
+        margin: 0;
+        height: 100vh;
+
+    }
+
+    .canciones_disponibles {
+        margin-left: 100px;
+    }
+
+}

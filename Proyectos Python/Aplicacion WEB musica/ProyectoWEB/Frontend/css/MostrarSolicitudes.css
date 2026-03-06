@@ -1,0 +1,53 @@
+
+
+table{
+    text-align: left;
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    border-bottom: 0px;
+    top: 100px;
+    left: 50px;
+    width: 900px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+th{
+    background-color: rgb(255, 69, 0);
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(25, 25, 112);
+    width: 100px;
+    padding: 10px;
+
+}
+
+td{
+    border-bottom: 1px solid rgb(25, 25, 112);
+    width: 100px;
+    padding: 10px;
+}
+
+
+
+.p-tablacanciones{
+    
+    margin-left: 50px;
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-style: groove;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:rgb(154, 205, 50);;
+    border-width: 1px;
+    
+}
+
+@media(max-width:480px){
+    .p-tablacanciones{
+        margin-left: 50px;
+    }
+}

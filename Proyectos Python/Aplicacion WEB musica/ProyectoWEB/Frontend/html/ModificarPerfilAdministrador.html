@@ -1,0 +1,191 @@
+<html>
+
+<head>
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            if (!localStorage.getItem('usuario')) {
+                // Si no hay sesión, redirige inmediatamente
+                location.replace("../index.html");
+            }
+            cargarInfo(); 
+            mostrarAdmin(); 
+        });
+    </script>
+    <link href="../css/ModificarPerfilAdministrador.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="global-container">
+        <button id="btn-open-menu" class="btn-open-navbar"><i class="bi bi-list"></i></button>
+
+        <div class="banner-izquierdo" id="banner-izquierdo">
+            <button id="btn-close-menu" class="btn-close-navbar"><i class="bi bi-x-square"></i></button>
+            <label class="foto-perfil"></label>
+            
+            
+            <div class="botones-container">
+
+                <h1 id="nombre-usuario" class="nombre-usuario"></h1>
+                
+                <button onclick="backPaginaPrincipal()" type="button" class="btn-pagina-principal">Pagina
+                    Principal</button>
+                <button type="button" class="btn-mi-perfil">Mi Perfil</button>
+                <button onclick="Back()" type="button" class="boton-back">Back</button>
+            </div>
+            <button href="javascript:cerrar()" onclick="cerrarSesion()" type="button" class="boton-cerrarSesion">Cerrar
+                Sesion</button>
+
+        </div>
+
+        <div class="info-container">
+            <div class="datos-usuario">
+                <p>Datos Del Usuario</p>
+
+                <label class="label-nombre">Nombre</label>
+                <input class="input-nombre" id="nombre">
+
+                <label class="label-apellido">Apellido</label>
+                <input class="input-apellido" id="apellido">
+
+                <label class="label-usuario">Usuario</label>
+                <input class="input-usuario" id="usuario">
+
+                <label class="label-contrasena">Contrasena</label>
+                <input class="input-contrasena" id="contrasena">
+
+
+                <div class="botones-usuario">
+                    <button type="button" onclick="Modificar()" class="boton-modificar">Modificar</button>
+
+                    <button type="button" onclick="back()" class="boton-regresar">Regresar</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        function cerrarSesion() {
+            localStorage.removeItem('usuario');
+            location.href = "../index.html"
+        }
+        
+        function Back() {
+            location.href = "administrador.html"
+        }
+
+        function cargarInfo() {
+
+            var carga = localStorage.usuario // proviene de administrador.html (Perfil())
+
+            fetch(`http://192.168.0.10:8000/Usuarios/${carga}`, // proviene de administrador.html (Perfil())
+
+            ).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+                console.log(res)
+
+                document.querySelector('#nombre').value = res[0].Nombre
+                document.querySelector('#apellido').value = res[0].Apellido
+                document.querySelector('#usuario').value = res[0].Usuario
+                document.querySelector('#contrasena').value = res[0].Contrasena
+
+            })
+        }
+
+        function mostrarAdmin() {
+
+            fetch('http://192.168.0.10:8000/Admin',
+
+            ).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+                console.log(res)
+
+
+                var valor = res.admin // Proviene de ModificarPerfilAdministrador.html (Modificar()) 
+
+                var h1 = document.querySelector('#nombre-usuario')
+                h1.innerHTML +=
+                    `
+                        <h1>${valor}</h1>
+                        
+                        `
+            })
+        }
+
+        function Modificar() {
+
+            //var carga = sessionStorage.usuario
+            var nombre = document.querySelector('#nombre').value
+            var apellido = document.querySelector('#apellido').value
+            var admin = document.querySelector('#usuario').value
+            var contrasena = document.querySelector('#contrasena').value
+
+            var objeto = {
+                'nombre': nombre,
+                'apellido': apellido,
+                'usuario': admin,
+                'contrasena': contrasena
+
+            }
+
+            fetch(`http://192.168.0.10:8000/Admin/${admin}`, {
+
+
+                method: 'PUT',
+                body: JSON.stringify(objeto),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+                console.log(res.message)
+                localStorage.setItem("admin", usuario) // se envia a inicio.html
+                alert(res.message)
+                location.href = "administrador.html"
+
+            })
+        }
+        function backPaginaPrincipal() {
+            location.href = "administrador.html"
+        }
+
+        function back() {
+            location.href = "administrador.html"
+        }
+    </script>
+
+    <script>
+        const open_menu = document.getElementById("btn-open-menu");
+        const close_menu = document.getElementById("btn-close-menu");
+        const navbar = document.getElementById("banner-izquierdo");
+
+        
+            open_menu.addEventListener("click", () => {
+                console.log("hiciste click en abrir menu");
+                navbar.classList.add("visible");
+            });
+
+            close_menu.addEventListener("click", () => {
+                console.log("hiciste click en cerrar menu");
+                navbar.classList.remove("visible");
+            });
+        
+    </script>
+</body>
+
+</html>

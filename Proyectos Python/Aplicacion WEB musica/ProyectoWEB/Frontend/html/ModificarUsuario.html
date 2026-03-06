@@ -1,0 +1,229 @@
+<html>
+
+<head>
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            if (!localStorage.getItem('usuario')) {
+                // Si no hay sesión, redirige inmediatamente
+                location.replace("../index.html");
+            }
+            cargarInfo(); 
+            mostrarDatos(); 
+        });
+    </script>
+    <link href="../css/ModificarUsuario.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="global-container">
+        <button id="btn-open-menu" class="btn-open-navbar"><i class="bi bi-list"></i></button>
+
+        <div class="banner-izquierdo" id="banner-izquierdo">
+            <button id="btn-close-menu" class="btn-close-navbar"><i class="bi bi-x-square"></i></button>
+
+            <label class="foto-perfil"></label>
+            
+
+            <div class="botones-container">
+
+                <h1 id="nombre-usuario" class="nombre-usuario"></h1>
+                
+                <button onclick="Back()" type="button" class="btn-pagina-principal">Pagina Principal</button>
+                <button onclick="perfil()" type="button" class="btn-mi-perfil">Mi Perfil</button>
+                <button onclick="back()" type="button" class="boton-back">Back</button>
+            </div>
+
+            <button href="javascript:cerrar()" onclick="cerrarSesion()" type="button" class="boton-cerrarSesion">Cerrar
+                Sesion</button>
+
+        </div>
+
+        <div class="info-container">
+            <div class="datos-usuario">
+                <p>Datos Del Usuario Seleccionado</p>
+
+                <label class="label-nombre">Nombre</label>
+                <input class="input-nombre" id="nombre">
+
+                <label class="label-apellido">Apellido</label>
+                <input class="input-apellido" id="apellido">
+
+                <label class="label-usuario">Usuario</label>
+                <input class="input-usuario" id="usuario">
+
+                <label class="label-contrasena">Contrasena</label>
+                <input class="input-contrasena" id="contrasena">
+
+                <div class="botones-usuario">
+                    <button type="button" onclick="Modificar()" class="boton-modificar">Modificar</button>
+                    <button type="button" onclick="Eliminar()" class="boton-eliminar">Eliminar</button>
+                    <button type="button" onclick="back()" class="boton-regresar">Regresar</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        function cerrarSesion() {
+            localStorage.removeItem('usuario');
+            location.href = "../index.html"
+        }
+        
+        function Back() {
+            location.href = "administrador.html"
+        }
+
+        function back() {
+            location.href = "tablaUsuarios.html"
+        }
+
+        function perfil() {
+            location.href = "ModificarPerfilAdministrador.html"
+        }
+    </script>
+
+    <script>
+
+        function mostrarDatos() {
+
+            fetch('http://192.168.0.10:8000/Admin',
+
+            ).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+                console.log(res)
+
+                var valor = res.admin // Proviene de ModificarPerfilAdministrador.html (Modificar()) 
+
+                var h1 = document.querySelector('#nombre-usuario')
+                h1.innerHTML +=
+                    `
+                        <h1>${valor}</h1>
+                                        
+                        `
+            })
+
+        }
+
+        function cargarInfo() {
+
+            var cargar = localStorage.buscar_usuario // proviene de TablaUsuarios.html mostrarPerfil()
+            
+            fetch(`http://192.168.0.10:8000/Usuarios/${cargar}`, // proviene de administrador.html
+
+            ).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+                console.log("el usuario es: ", res);
+
+                for (var i = 0; i < (res.length); i++) {
+                    
+                    document.querySelector('#nombre').value = res[i].Nombre;
+                    document.querySelector('#apellido').value = res[i].Apellido;
+                    document.querySelector('#usuario').value = res[i].Usuario;
+                    document.querySelector('#contrasena').value = res[i].Contrasena;
+                }
+
+
+
+            })
+        }
+
+        function Modificar() {
+            var cargar = localStorage.buscar_usuario // proviene de tablaUsuarios.html (modifcarUsuario())
+            var nombre = document.querySelector('#Nombre').value
+            var apellido = document.querySelector('#Apellido').value
+            var usuario = document.querySelector('#Usuario').value
+            var contrasena = document.querySelector('#Contrasena').value
+            var objeto = {
+                'nombre': nombre,
+                'apellido': apellido,
+                'usuario': usuario,
+                'contrasena': contrasena
+            }
+
+
+            fetch(`http://192.168.0.10:8000/Usuarios/${cargar}`, {
+
+
+                method: 'PUT',
+                body: JSON.stringify(objeto),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+                console.log(res.message)
+
+                alert(res.message)
+                location.href = "TablaUsuarios.html"
+
+            })
+        }
+
+        function Eliminar() {
+
+            var usuario = document.querySelector('#Usuario').value
+
+
+            var objeto = {
+                'usuario': usuario,
+
+            }
+
+            fetch(`http://192.168.0.10:8000/Usuarios/${usuario}`, {
+
+
+                method: 'DELETE',
+                body: JSON.stringify(objeto),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => response.json()
+            ).catch(err => {
+                console.log("no se pudo consumir la api")
+            }).then(res => {
+
+
+                alert(res.message)
+                location.href = "TablaUsuarios.html"
+
+            })
+        }
+
+
+    </script>
+    <script>
+        const open_menu = document.getElementById("btn-open-menu");
+        const close_menu = document.getElementById("btn-close-menu");
+        const navbar = document.getElementById("banner-izquierdo");
+
+
+        open_menu.addEventListener("click", () => {
+            console.log("hiciste click en abrir menu");
+            navbar.classList.add("visible");
+        });
+
+        close_menu.addEventListener("click", () => {
+            console.log("hiciste click en cerrar menu");
+            navbar.classList.remove("visible");
+        });
+
+    </script>
+</body>
+
+</html>

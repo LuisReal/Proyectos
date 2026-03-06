@@ -1,0 +1,103 @@
+
+
+
+.p-tablacanciones{
+    
+    margin-left: 50px;
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-style: groove;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:rgb(154, 205, 50);;
+    border-width: 1px;
+    
+}
+
+
+
+.boton-back{
+    
+    top: 550;
+    left: 100px;
+    width: 100px;
+    height: 30px;
+    border-width: 1px;
+    background-color: white;
+    border-color: rgb(154, 205, 50);
+    color: black;
+    border-radius: 10px;
+    outline: none;
+}
+
+
+
+table{
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    border-bottom: 0px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#tbody{
+    text-align: center;
+}
+
+th,td{
+    width: 350px;
+    border-bottom: 1px solid rgb(25, 25, 112);
+    padding: 10px;
+}
+
+.ver-portada{
+    
+    margin-top: 10px;
+    height: 35px;
+    border: none;
+    background-color: rgb(149, 218,1);
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.ver-portada:hover{
+    background-color: rgba(23, 28, 14, 0.978);
+}
+
+.ver-detalles{
+    
+    margin-top: 10px;
+    margin-left: 100px;
+    height: 35px;
+    border: none;
+    background-color: rgb(75, 57, 210);
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.ver-detalles:hover{
+    background-color: rgba(23, 28, 14, 0.978);
+}
+
+
+.add-to-playlist{
+    margin-top: 10px;
+    margin-left: 100px;
+    height: 35px;
+    border: none;
+    background-color: rgb(1, 211, 218);
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.add-to-playlist:hover{
+    background-color: rgba(23, 28, 14, 0.978);
+}

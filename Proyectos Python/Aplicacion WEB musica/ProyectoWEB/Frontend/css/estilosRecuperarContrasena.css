@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+body{
+
+    background-image: url('../images/velero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    background: linear-gradient(to bottom, red, black);
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    
+}
+
+h1{
+    
+    color:white;
+    padding-top: 50px;
+    text-align: center;
+    
+    width: 100%;
+    height: 100px;
+    background-color:  rgba(23, 139, 0, 0.803);
+   
+}
+
+
+
+.info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    height: 200px;
+    width: 400px;
+    
+    
+}
+
+.usuario{
+
+    height: 50px;
+    width: 300px;
+    border-radius: 20px;
+    border: 2px solid green;
+    text-align: center;
+
+}
+a{
+    padding: 10px;
+    background-color: rgba(89, 210, 196, 0.662);
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+}
+a:hover{
+    background-color: rgba(89, 210, 196, 0.829);
+}
+
+.boton-recuperar{
+
+    height: 50px;
+    width: 300px;
+    color: white;
+    background-color: rgba(23, 139, 0, 0.803);
+    border-radius: 20px;
+    border: none;
+}
+
+.boton-recuperar:hover{
+    background-color: rgba(23, 139, 0, 0.988);
+    font-weight: bold;
+}
+
+

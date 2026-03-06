@@ -1,0 +1,7 @@
+para levantar el servidor de flask del backend hacer lo siguiente
+
+1) ejecutar el archivo main.py al ubicarse en la carpeta backend.  py main.py
+2) la contraseña del administrador es: admin y usuario es: admin
+3) los archivos a cargar tienen formato csv, para cargar el archivo acceder como administrador e ir a canciones
+
+Solo Los usuarios se almacenan en una base de datos oracle local, los demas datos como de las canciones y comentarios se manejan con listas

@@ -1,0 +1,130 @@
+<HTML>
+
+<head>
+   <link href="css/estilosInicio.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--esto es importante para diseno responsivo con @media-->
+   <!------ Include the above in your HEAD tag ---------->
+</head>
+
+<body>
+   
+   <div class="contenedor">
+      
+
+      <div class="sidenav">
+         <audio style="outline: none; width:100%" loop controls src="html/tightrope.mp3"></audio>
+         <h2>Welcome to Modern Music</h2>
+         <img class="image-bird" src="images/bird.png" width="50" height="50">
+         <img class="image-logo" src="images/logo.jpg" width="100" height="100">
+
+
+      </div>
+
+      <div class="main">
+
+         <form>
+
+            <div class="banner">
+
+
+            </div>
+
+            <!---- <img class="image" src="icono.png" width="90" height="90"> -->
+            <div class="form-group">
+
+               <input type="text" class="form-user" autocomplete="off" placeholder="User Name" id="username">
+               <input type="password" class="form-password" autocomplete="off" placeholder="Password" id="password">
+               <div class="botones">
+                  <button onclick="login()" type="button" class="btnL" id="miBoton">Login</button>
+                  <button onclick="location.href='html/register.html'" type="button" class="btnR">Register</button>
+                  
+               </div>
+               <a class="forgot" href="html/RecuperarContrasena.html">Forgot Password?</a>
+            </div>
+
+
+
+         </form>
+
+
+      </div>
+
+      <div class="contactenos">
+         <p>contactenos</p>
+         <button type="button" onclick="window.open('https://www.facebook.com/', '_blank')" class="fb"></button>
+         <button type="button" onclick="window.open('https://www.instagram.com/', '_blank')" class="inst"></button>
+         <button type="button" onclick="window.open('https://twitter.com/softzone', '_blank')" class="twitter"></button>
+         <p class="acerca">acerca de</p>
+         <a href="./index.html" target="_blank">Politicas</a>
+         <a href="./index.html" target="_blank">Privacidad</a>
+         <a href="./index.html" target="_blank">Cookies</a>
+      </div>
+
+
+
+   </div>
+
+
+   <script>
+      const boton = document.getElementById('miBoton');
+      const miInput = document.getElementById('password');
+
+      miInput.addEventListener('keydown', (e) => {
+         if (e.key === 'Enter') {
+            e.preventDefault();
+            boton.focus();
+            login()
+         }
+      });
+      function login() {
+
+         var username = document.querySelector('#username').value
+         var password = document.querySelector('#password').value
+         var objeto = {
+            'username': username,
+            'password': password
+         }
+
+         fetch('http://192.168.0.10:8000/Login', {   
+ 
+            method: 'POST',
+            body: JSON.stringify(objeto),
+            headers: {
+               'Content-Type': 'application/json'
+            }
+         }).then(response => response.json()
+         ).catch(err => {
+            console.error("Error", err)
+            alert("Ocurrio un error ver la consola")
+         }).then(res => {
+            console.log("res.usuario: "+res.usuario+ " contrasena: "+res.contrasena)
+            
+            if (res.usuario == "admin" && res.contrasena == "admin") {
+
+               document.querySelector('#username').value = "";
+               document.querySelector('#password').value = "";
+               
+               localStorage.setItem('usuario', username)
+               alert(res.message + " " + res.usuario) // Bienvenido admin
+               location.href = "html/administrador.html"
+
+            } else if (res.usuario == username && res.contrasena == password) {
+               document.querySelector('#username').value = "";
+               document.querySelector('#password').value = "";
+
+               localStorage.setItem('usuario', username)
+               alert("Accediste como cliente")
+               location.href = "html/Cliente.html"
+            } else {
+               document.querySelector('#username').value = "";
+               document.querySelector('#password').value = "";
+               alert("Usuario o contrasena incorrectos")
+            }
+         })
+      }
+   </script>
+
+</body>
+
+</HTML>

@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.datos-usuario{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    margin-left: 10px;
+}
+
+.label-nombre{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 0;
+    width: 100%;
+    
+
+}
+
+.input-nombre{
+
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-style: groove;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.label-apellido{
+
+   
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-apellido{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    border-color: black;
+    border-style: groove;
+    border-color: rgb(220, 220, 220);
+    height: 30px;
+    border-radius: 5px;
+}
+
+.label-usuario{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-usuario{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    width: 100%;
+    height: 30px;
+}
+
+.label-contrasena{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-contrasena{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    width: 100%;
+    height: 30px;
+}
+
+
+.boton-modificar{
+
+    background-color: rgb(34, 139, 34);
+    
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: 0px;
+    color: white;
+}
+
+.boton-regresar{
+
+    
+    background-color: black;
+    color: white;
+    
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: 0px;
+}
+
+p{
+    
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-style: groove;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:rgb(154, 205, 50);;
+    border-width: 2px;
+}
+
+@media (max-width: 480px){
+    p{
+        margin-left: 100px;
+    }
+}

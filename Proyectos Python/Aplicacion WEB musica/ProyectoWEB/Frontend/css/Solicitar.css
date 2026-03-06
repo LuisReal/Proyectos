@@ -1,0 +1,246 @@
+
+.boton-back{
+    
+    top: 550;
+    left: 100px;
+    width: 100px;
+    height: 30px;
+    border-width: 1px;
+    background-color: white;
+    border-color: rgb(154, 205, 50);
+    color: black;
+    border-radius: 10px;
+    outline: none;
+}
+
+.p-solicitar{
+    
+    left: 50px;
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-style: groove;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:rgb(154, 205, 50);;
+    border-width: 1px;
+    
+}
+
+.datos-usuario{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    margin-left: 10px;
+}
+
+.label-nombre{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 100px;
+    left: 100px;
+    width: 100%;
+    
+
+}
+
+.input-nombre{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-style: groove;
+    width: 100%;
+    top: 120px;
+    left: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.label-artista{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 170px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-artista{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    border-color: black;
+    border-style: groove;
+    top: 190px;
+    left: 100px;
+    border-color: rgb(220, 220, 220);
+    height: 30px;
+    border-radius: 5px;
+}
+
+.label-album{
+
+   
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 240px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-album{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    top: 260px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+}
+
+.label-fecha{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 310px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-fecha{
+
+   
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    top: 330px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+}
+
+.label-imagen{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 380px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-imagen{
+
+   
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    top: 400px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+}
+
+.label-spotify{
+
+   
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 450px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-spotify{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    top: 470px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+}
+
+.label-youtube{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    top: 520px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+
+}
+
+.input-youtube{
+
+    
+    font-family: 'Courier New', Courier, monospace;
+    border-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    border-style: groove;
+    top: 540px;
+    left: 100px;
+    width: 100%;
+    height: 30px;
+}
+
+.boton-solicitar{
+
+    
+    background-color: rgb(34, 139, 34);
+    top: 580px;
+    left: 400px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px;
+    color: white;
+}
+
+.boton-regresar{
+
+
+    background-color: black;
+    color: white;
+    top: 500px;
+    left: 350px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px;
+}
+
+@media (max-width: 480px){
+    .p-solicitar{
+        margin-left: 50px;
+    }
+}

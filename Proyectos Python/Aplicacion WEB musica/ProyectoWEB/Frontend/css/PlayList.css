@@ -1,0 +1,80 @@
+
+
+.p-tablacanciones{
+    
+    margin-left: 50px;
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-style: groove;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:rgb(154, 205, 50);;
+    border-width: 1px;
+    
+}
+
+
+.boton-back{
+    
+    top: 550;
+    left: 100px;
+    width: 100px;
+    height: 30px;
+    border-width: 1px;
+    background-color: white;
+    border-color: rgb(154, 205, 50);
+    color: black;
+    border-radius: 10px;
+    outline: none;
+}
+
+
+
+audio{
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+}
+
+.boton-eliminar{
+
+   
+    background-color: rgb(255, 0, 0);
+    
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px;
+    color: white;
+}
+
+.boton-eliminar:hover{
+    background-color: rgba(255, 0, 0, 0.782);
+    font-weight: bold;
+}
+
+table{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    border-bottom: 0px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+th,td{
+    border-bottom: 1px solid rgb(25, 25, 112);
+    width: 100px;
+    padding: 10px;
+}
+
+@media(max-width:480px){
+    .boton-cerrarSesion{
+        margin-left: 50px;
+    }
+}

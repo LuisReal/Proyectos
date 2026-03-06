@@ -1,0 +1,8 @@
+El Frontend fue realizado con Django
+El backend fue realizado con Python Flask
+
+Para ejecutar el frontend ubicarse en donde este el archivo manage.py
+por ejemplo: \Proyecto\Records\Frontend>python manage.py runserver
+
+Para ejecutar el backend ubicarse en donde este el archivo main.py
+py main.py

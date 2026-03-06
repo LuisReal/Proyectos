@@ -1,0 +1,70 @@
+
+
+h2{
+    margin-top: 20px;
+    margin-left: 50px;
+    font-size: 30px;
+    color: rgb(25, 25, 112);
+    font-weight: bold;
+    border-style: groove;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:rgb(154, 205, 50);;
+    border-width: 2px;
+}
+
+
+.boton-cargar{
+    
+    margin-top: 20px;
+    margin-left: 50px;
+    background-color: rgb(50, 205, 50);
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+    color: white;
+    font-weight: bolder;
+    border: 0px;
+}
+
+.input-file{
+    
+    margin-top: 20px;
+    margin-left: 100px;
+    outline: none;
+    height: 30px;
+    width: 200px;
+}
+
+
+.back{
+
+    
+    margin-top: 500px;
+    margin-left: 80px;
+    color: rgb(0, 128,128);
+
+}
+
+table{
+    text-align: left;
+    border-collapse: collapse;
+    border-bottom: 0px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+th,td{
+    border-bottom: 1px solid rgb(25, 25, 112);
+    width: 100px;
+    padding: 10px;
+}
+
+@media (max-width: 480px){
+    h2{
+        margin-left: 50px;
+    }
+}

@@ -1,0 +1,137 @@
+
+{% load static %}
+<html>
+<head>
+    <title>Paises</title>
+    
+    <link rel="stylesheet" type="text/css" href={% static 'bootstrap/css/bootstrap.min.css'%} />
+    <link rel="stylesheet" type="text/css" href={% static 'estilos.css'%} />
+    <link rel="stylesheet" type="text/css" href={% static 'bootstrap/jquery-3.6.0.min.js'%} /> 
+    <link rel="stylesheet" type="text/css" href={% static 'bootstrap/jquery.modal.min.js'%} /> 
+</head>
+<body>
+    
+    <form method= "POST" >
+        {% csrf_token %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="http://localhost:8000/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav move">
+                    
+                    <li class="nav-item">
+                        <button type="submit" name="ver" class="btn btn-success py-3" value="Ver Paises">Ver Paises</button>
+                        
+                    </li>
+
+
+                    <li>
+                        <div class="btn-group">
+                            <button type="submit" name="buscar" class="btn btn-primary dropdown-toggle py-3" data-bs-toggle="dropdown" aria-expanded="false" value="Buscar">Buscar</button>
+                            <ul class="dropdown-menu">   
+                                <li><button type="submit" class="dropdown-item"  class="btn btn-primary" name="moneda" value="Moneda">Moneda</button></li>
+                                
+                                <li><input class="dropdown-item" type="submit" name="idioma" value="Idioma"></li>
+                                <li><input class="dropdown-item" type="submit" name="continente" value="Continente"></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    
+                    <li class="nav-item ">
+                        <button type="submit" name="reporte" class="btn btn-info py-3" value="Reporte" >Reporte</button>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container my-3 bg">
+            
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-4 ">
+                    
+                    <div id="datos">
+                        <h3>Paises</h3>
+                        <textarea>{% for continente in data.mundo.continente%}Continente: {{continente.continente}}
+                        
+            {% for paises in continente.pais %} 
+                Nombre: {{paises.nombre  }} 
+                Capital: {{paises.capital }}
+                Idioma: {{paises.idioma }}
+                Moneda: {{paises.moneda}}
+            {% endfor %}
+                            
+        {% endfor %}
+                        </textarea>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-4 ">
+                    <div id="busqueda" >
+            
+                        <h3>Busqueda de Paises</h3>
+                        <input type="text" name="paises">
+            
+                        <table class="table table-bordered table-success table-striped table-hover my-2">
+                            
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="centrado">Pais</th>
+            
+                                    <th class="centrado">Capital</th>
+            
+                                    <th class="centrado">Idioma</th>
+
+                                    <th class="centrado">Continente</th>
+                                
+                                </tr>
+                                
+                            </thead>
+                            
+                            <tbody>
+                                {% for continente in datos.mundo.continente %}
+
+                                    {% for pais in continente.pais %} 
+                                            
+                                        <tr>
+                                                    
+                                            <td class="centrado">{{pais.nombre}}</td>
+
+                                            <td class="centrado">{{pais.capital}}</td>
+
+                                            <td class="centrado">{{pais.idioma}}</td>
+                                                    
+                                            <td class="centrado">{{continente.continente}}</td>
+                                        </tr>
+                                            
+                                    {% endfor %}
+                                {% endfor %}
+                            </tbody>       
+                        </table>
+                        {% if datos.mensaje == "False" %}
+                            
+                            <button type="button" class="btn btn-danger">No se encontro el dato</button>
+                        {% endif %}
+                    </div>
+
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+        
+        
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>
