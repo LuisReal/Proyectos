@@ -1,0 +1,421 @@
+package Analisis;
+
+// importaciones
+import java_cup.runtime.Symbol;
+import java.util.LinkedList;
+import java.util.HashMap;
+import abstracto.Instruccion;
+import simbolo.Tipo;
+import simbolo.tipoDato;
+import excepciones.Errores;
+
+//instrucciones
+import instrucciones.Print;
+import instrucciones.Declaracion;
+import instrucciones.AsignacionVar;
+import instrucciones.If;
+import instrucciones.Switch;
+import instrucciones.Case;
+import instrucciones.Default;
+import instrucciones.While;
+import instrucciones.DoWhile;
+import instrucciones.For;
+import instrucciones.Break;
+import instrucciones.Continue;
+import instrucciones.Incremento;
+import instrucciones.Decremento;
+import instrucciones.Casteo;
+import instrucciones.Metodo;
+import instrucciones.Funcion;
+import instrucciones.Return;
+import instrucciones.Start;
+import instrucciones.Llamada;
+import instrucciones.DeclaracionLista;
+import instrucciones.DeclaracionVector;
+import instrucciones.Append;
+import instrucciones.AsignacionVectorLista;
+import instrucciones.Remove;
+
+//expresiones
+import expresiones.Token;
+import expresiones.OperadoresAritmeticos;
+import expresiones.Aritmeticos;
+import expresiones.OperadoresRelacionales;
+import expresiones.Relacionales;
+import expresiones.OperadoresLogicos;
+import expresiones.Logicos;
+import expresiones.AccesoVar;
+import expresiones.AccesoVectorLista;
+import expresiones.Length;
+import expresiones.ToString;
+import expresiones.Round;
+import expresiones.Find;
+
+parser code
+{:
+        public LinkedList<Errores> listaErrores = new LinkedList<>();
+        private Symbol s;
+        //scanner s;
+        //parser(scanner s){this.s = s;};
+        public void syntax_error(Symbol s){
+            
+            listaErrores.add(new Errores("SINTACTICO", "No se el componente: " + s.value, s.left, s.right));
+            //System.out.println("Error sintactico: "+(s.value)+ " en la linea " + (s.left) + ", y columna " + (s.right) );
+        }
+        public void unrecovered_syntax_error(Symbol s){
+           
+            listaErrores.add(new Errores("SINTACTICO", "No se el componente" + s.value, s.left, s.right));
+            //System.out.println("Error sintactico no recuperable: "+(s.value) + " en la linea " + (s.left) + ", y columna " + (s.right) );
+        }
+:}
+
+action code
+{:
+:}
+
+//terminales
+
+
+//terminales con valores de tipo String
+terminal String CADENA, ENTERO, DECIMAL, ID;
+terminal String _break;
+terminal String _continue;
+
+//palabras reservadas (sin tipo necesario, o String)
+terminal PRINT, VAR, INT, DOUBLE, BOOL, STRING, _CHAR, _append, _remove, LENGTH, TOSTRING, FIND, ROUND;
+
+terminal TRUE, FALSE;
+terminal _if, _else, _switch, _case, _default, _while, _do, _for, _return, _list, _new;
+
+//terminal para carácter literal
+terminal Character CHAR;
+
+//operadores y símbolos (sin tipo)
+terminal PUNTOCOMA, PUNTO, PARABRE, PARCIERRA, MAS, MENOS, EXCLAMACION;
+terminal PORCENTAJE, POR, DIV, MENOR, MAYOR, IGUAL, DOSPUNTOS;
+terminal llaveizq, llaveder, corcheteA, corcheteC;
+
+//operadores lógicos
+terminal XOR, AND, OR;
+
+//operadores relacionales compuestos
+terminal IGUALACION, DIFERENTE, MENORQ, MENORIGUAL, MAYORQ, MAYORIGUAL;
+
+//otros
+terminal UMENOS, CASTEO, POTENCIA, ERROR;
+terminal VOID, COMA, START;
+
+// no terminales
+nonterminal LinkedList<Instruccion> INICIO, INSTRUCCIONES;
+nonterminal Instruccion INSTRUCCION;
+nonterminal Instruccion EXPRESION;
+nonterminal Instruccion DECLARACION, ASIGNACION;
+nonterminal Tipo TIPOS;
+nonterminal Instruccion IF;
+nonterminal LinkedList<Instruccion> ELSEIF;
+nonterminal Instruccion WHILE;
+nonterminal Instruccion DO_WHILE;
+nonterminal Instruccion SWITCH;
+nonterminal LinkedList<Instruccion> CASE;
+nonterminal LinkedList<Instruccion> CASES_LIST;
+nonterminal Default DEFAULT;
+nonterminal Instruccion BREAK;
+nonterminal Instruccion CONTINUE;
+nonterminal Instruccion INCREMENTO;
+nonterminal Instruccion DECREMENTO;
+nonterminal Instruccion FOR, ACTUALIZAR_FOR;
+nonterminal Instruccion METODO;
+nonterminal Instruccion FUNCION;
+nonterminal Instruccion RETURN;
+nonterminal LinkedList<HashMap> PARAMS;
+nonterminal Instruccion STARTT;
+nonterminal Instruccion LLAMADA;
+nonterminal LinkedList<Instruccion> PARAMSLLAMADA;
+nonterminal LinkedList<Instruccion> LISTAVALORES_1D;
+nonterminal LinkedList<LinkedList<Instruccion>> LISTAVALORES_2D;
+nonterminal Instruccion DECLARACIONVECTOR;
+nonterminal Instruccion DECLARACIONLISTA;
+nonterminal Instruccion APPEND;
+nonterminal AccesoVectorLista ACCESO_VECTORLISTA;
+
+precedence left OR;
+precedence left XOR;
+precedence left AND;
+precedence right EXCLAMACION;
+precedence left IGUALACION, DIFERENTE, MENORQ, MENORIGUAL, MAYORQ, MAYORIGUAL;
+precedence left MAS, MENOS;
+precedence left POR, DIV, PORCENTAJE;
+precedence nonassoc POTENCIA;
+precedence right UMENOS;
+precedence right CASTEO;
+
+start with INICIO;
+
+INICIO ::= 
+            |INSTRUCCIONES:a   {: RESULT = a; :}
+;
+
+INSTRUCCIONES ::= INSTRUCCIONES:a INSTRUCCION:b {: RESULT = a; RESULT.add(b); :}
+                | INSTRUCCION:a                {: RESULT = new LinkedList<>(); RESULT.add(a); :}
+;
+INSTRUCCION ::= PRINT PARABRE EXPRESION:a PARCIERRA PUNTOCOMA {: RESULT =  new Print(a, aleft, aright);:}
+                | DECLARACION:a     {: RESULT = a;  :}
+                | ASIGNACION:a      {: RESULT = a; :}
+                | INCREMENTO:a      {:RESULT = a; :}
+                | DECREMENTO:a      {:RESULT = a; :}
+                
+                
+                | IF:a              {:RESULT = a; :}
+                | SWITCH:a          {:RESULT = a; :}
+                | WHILE:a           {:RESULT = a; :}
+                | DO_WHILE:a        {:RESULT = a; :}
+                | FOR:a             {:RESULT = a; :}
+                | BREAK:a           {:RESULT = a; :}
+                
+                | CONTINUE:a         {:RESULT = a; :}
+                | METODO:a           {: RESULT = a; :}
+                | FUNCION:a          {: RESULT = a; :}
+                | RETURN:a           {:RESULT = a; :}
+                | STARTT:a           {: RESULT = a; :}
+                | LLAMADA:a          {: RESULT = a; :}
+                | DECLARACIONLISTA:a {: RESULT = a; :}
+                | DECLARACIONVECTOR:a {: RESULT = a; :}
+                | APPEND:a           {: RESULT = a; :}
+                
+                | error PUNTOCOMA
+                | ERROR 
+;
+
+
+IF ::= _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder {: RESULT = new If(a, b, aleft, aright); :}
+        | _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder _else llaveizq INSTRUCCIONES:c llaveder {: RESULT =  new If(a, b, c, aleft, aright); :}
+        | _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder ELSEIF:c {: RESULT =  new If(a, b, c, null, aleft, aright); :}
+        | _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder ELSEIF:c _else llaveizq INSTRUCCIONES:d llaveder  {: RESULT =  new If(a, b, c, d, aleft, aright); :}
+;
+ELSEIF ::=  ELSEIF:m _else _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder {:RESULT=m; RESULT.add(new If(a, b, aleft, aright));:}
+            | _else _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder {: RESULT =  new LinkedList<>(); RESULT.add(new If(a, b, aleft, aright));:}
+;
+
+
+
+SWITCH ::= _switch PARABRE EXPRESION:a PARCIERRA llaveizq CASES_LIST:b DEFAULT:c llaveder {: RESULT = new Switch(a, b, c, aleft, aright); :}
+           | _switch PARABRE EXPRESION:a PARCIERRA llaveizq CASES_LIST:b llaveder {: RESULT = new Switch(a, b, null, aleft, aright); :}
+           | _switch PARABRE EXPRESION:a PARCIERRA llaveizq DEFAULT:b llaveder {: RESULT = new Switch(a, null, b, aleft, aright); :}
+;
+
+CASES_LIST ::=
+      CASES_LIST:a CASE:b {: RESULT = a; RESULT.addAll(b); :}
+    | CASE:b {: RESULT = new LinkedList<Instruccion>();  RESULT.addAll(b); :}
+;
+
+CASE ::= _case EXPRESION:a DOSPUNTOS INSTRUCCIONES:b {:RESULT = new LinkedList<Instruccion>(); RESULT.add(new Case(a, b, aleft, aright));:}
+;
+
+DEFAULT ::= _default DOSPUNTOS INSTRUCCIONES:a
+           {: RESULT = new Default(a, aleft, aright); :}
+;
+
+
+FOR ::= _for PARABRE ASIGNACION:a EXPRESION:b PUNTOCOMA ACTUALIZAR_FOR:c PARCIERRA llaveizq INSTRUCCIONES:d llaveder {: RESULT = new For(a, b, c, d, aleft, aright); :}
+        | _for PARABRE DECLARACION:a EXPRESION:b PUNTOCOMA ACTUALIZAR_FOR:c PARCIERRA llaveizq INSTRUCCIONES:d llaveder {: RESULT = new For(a, b, c, d, aleft, aright); :}
+        
+;
+
+ACTUALIZAR_FOR ::= ID:a IGUAL EXPRESION:b {: RESULT = new AsignacionVar(a, b, aleft, aright); :}
+                   |ID:a MAS MAS  {: RESULT = new Incremento(a, aleft, aright); :}
+                   |ID:a MENOS MENOS  {: RESULT = new Decremento(a, aleft, aright); :}
+; 
+
+WHILE ::= _while PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder {: RESULT = new While(a, b, aleft, aright); :}
+;
+
+DO_WHILE ::= _do llaveizq INSTRUCCIONES:a llaveder _while PARABRE EXPRESION:b PARCIERRA PUNTOCOMA {: RESULT = new DoWhile(a, b, aleft, aright); :}
+;
+
+
+BREAK ::= _break:a PUNTOCOMA {: RESULT =  new Break(aleft, aright); :}
+;
+
+CONTINUE ::= _continue:a PUNTOCOMA {: RESULT =  new Continue(aleft, aright); :}
+;
+
+INCREMENTO ::= ID:a MAS MAS PUNTOCOMA {: RESULT = new Incremento(a, aleft, aright); :}
+;
+
+DECREMENTO ::= ID:a MENOS MENOS PUNTOCOMA {: RESULT = new Decremento(a, aleft, aright); :}
+;
+
+
+DECLARACION ::= VAR  ID:b DOSPUNTOS TIPOS:a IGUAL EXPRESION:c PUNTOCOMA {: RESULT = new Declaracion(b, c, a, aleft, aright); :}
+                | VAR ID:b DOSPUNTOS TIPOS:a PUNTOCOMA{: RESULT = new Declaracion(b, null, a, bleft, bright); :}
+;   
+
+DECLARACIONLISTA ::= _list MENOR TIPOS:a MAYOR ID:b IGUAL _new _list PARABRE PARCIERRA PUNTOCOMA
+                    {: RESULT = new DeclaracionLista(b, a, aleft, aright); :}
+;
+
+DECLARACIONVECTOR ::= VAR ID:a DOSPUNTOS TIPOS:b corcheteA corcheteC IGUAL corcheteA LISTAVALORES_1D:c corcheteC PUNTOCOMA
+                    {: RESULT = new DeclaracionVector(a, c, b, 1, aleft, aright); :}
+                   | VAR ID:a DOSPUNTOS TIPOS:b corcheteA corcheteC corcheteA corcheteC
+                    IGUAL corcheteA LISTAVALORES_2D:c corcheteC PUNTOCOMA
+                    {: RESULT = new DeclaracionVector(a, c, b, 2, aleft, aright); :}
+;
+
+
+LISTAVALORES_1D ::= LISTAVALORES_1D:a COMA EXPRESION:b {:  RESULT = a;  
+                                                        RESULT.add(b);
+                                                    :}
+                | EXPRESION:a                       {:
+                                                        RESULT = new LinkedList<Instruccion>();
+                                                        RESULT.add(a);
+                                                    :}
+;
+
+LISTAVALORES_2D ::= LISTAVALORES_2D:a COMA corcheteA LISTAVALORES_1D:b corcheteC
+            {: RESULT = a; RESULT.add(b); :}
+          | corcheteA LISTAVALORES_1D:a corcheteC
+            {: RESULT = new LinkedList<LinkedList<Instruccion>>(); RESULT.add(a); :}
+;
+
+
+APPEND ::= ID:a PUNTO _append PARABRE EXPRESION:b PARCIERRA PUNTOCOMA {: RESULT = new Append(a, b, aleft, aright); :}
+;
+
+
+
+
+ACCESO_VECTORLISTA ::= ID:a corcheteA EXPRESION:b corcheteC {: RESULT = new AccesoVectorLista(a, b, null, aleft, aright); :}
+                    | ID:a corcheteA EXPRESION:b corcheteC corcheteA EXPRESION:j corcheteC 
+                    {: RESULT = new AccesoVectorLista(a, b, j, aleft, aright); :}
+;
+
+
+
+ASIGNACION ::= 
+                 ACCESO_VECTORLISTA:a  IGUAL EXPRESION:c PUNTOCOMA {: RESULT = new AsignacionVectorLista(a, c, aleft, aright); :}
+                | ID:a IGUAL EXPRESION:b PUNTOCOMA {: RESULT = new AsignacionVar(a, b, aleft, aright); :} 
+              
+;
+
+METODO ::= VOID:a ID:b PARABRE PARCIERRA llaveizq INSTRUCCIONES:c llaveder {: RESULT=new Metodo(b, new LinkedList<HashMap>(), c, null, aleft, aright);:}
+            | VOID:a ID:b PARABRE PARAMS:p PARCIERRA llaveizq INSTRUCCIONES:c llaveder    {: RESULT=new Metodo(b, p, c, null, aleft, aright);:}
+;
+
+FUNCION ::= TIPOS:a ID:b PARABRE PARCIERRA llaveizq INSTRUCCIONES:c llaveder
+            {: RESULT = new Funcion(b, new LinkedList<HashMap>(), c, a, aleft, aright); :}
+          
+            | TIPOS:a ID:b PARABRE PARAMS:p PARCIERRA llaveizq INSTRUCCIONES:c llaveder
+            {: RESULT = new Funcion(b, p, c, a, aleft, aright); :}
+;
+
+
+RETURN ::= _return EXPRESION:a PUNTOCOMA {: RESULT = new Return(a, aleft, aright); :}
+           | _return:a PUNTOCOMA  {: RESULT = new Return(null, aleft, aright); :}
+;
+
+
+
+PARAMS ::= PARAMS:a COMA TIPOS:b ID:c {:
+                                   RESULT  = a;
+                                   var hm2 = new HashMap<String, Object>();
+                                   hm2.put("id",c);
+                                   hm2.put("tipo",b);
+                                   RESULT.add(hm2); 
+                                :}
+        |  TIPOS:a ID:b               {: 
+                                    
+                                    RESULT = new LinkedList<HashMap>();
+                                    var hm = new HashMap<String, Object>();
+                                    hm.put("id", b);
+                                    hm.put("tipo", a);  
+                                    RESULT.add(hm);
+
+                                  :}
+;
+
+STARTT ::= START ID:a PARABRE PARCIERRA PUNTOCOMA {: RESULT = new Start(a, new LinkedList<Instruccion>(),aleft, aright); :}
+        | START ID:a PARABRE PARAMSLLAMADA:b PARCIERRA PUNTOCOMA {: RESULT = new Start(a, b, aleft, aright); :}
+;
+
+LLAMADA ::= ID:a PARABRE PARAMSLLAMADA:b PARCIERRA PUNTOCOMA {: RESULT = new Llamada(a, b, aleft, aright);:}
+            | ID:a PARABRE PARCIERRA PUNTOCOMA      {: RESULT = new Llamada(a, new LinkedList<Instruccion>(),aleft, aright); :}
+            
+;
+
+PARAMSLLAMADA ::= PARAMSLLAMADA:a COMA EXPRESION:b {:  RESULT = a;  
+                                                        RESULT.add(b);
+                                                    :}
+                | EXPRESION:a                       {:
+                                                        RESULT = new LinkedList<Instruccion>();
+                                                        RESULT.add(a);
+                                                    :}
+;
+
+
+
+
+
+TIPOS ::=   INT         {: RESULT = new Tipo(tipoDato.ENTERO);  :}
+          | DOUBLE      {: RESULT = new Tipo(tipoDato.DECIMAL);  :}
+          | BOOL      {: RESULT = new Tipo(tipoDato.BOOLEANO);  :}
+          | STRING      {: RESULT = new Tipo(tipoDato.CADENA);  :}
+          | _CHAR      {: RESULT = new Tipo(tipoDato.CARACTER);  :}
+          
+;
+
+
+
+
+//NOTA: las expresiones de tipo EXPRESION:a MENOS EXPRESION:b tienen que tener precedencia de lo contrario dara error de ambiguedad
+
+
+EXPRESION ::=  MENOS EXPRESION:a           {: RESULT = new Aritmeticos(OperadoresAritmeticos.NEGACION, a, aleft, aright); :} %prec UMENOS
+              | EXPRESION:a POTENCIA EXPRESION:b  {: RESULT = new Aritmeticos(a, b, OperadoresAritmeticos.POTENCIA, aleft, aright); :}
+              | EXPRESION:a PORCENTAJE EXPRESION:b  {: RESULT = new Aritmeticos(a, b, OperadoresAritmeticos.MODULO, aleft, aright); :} //%prec MODULO
+              | EXPRESION:a POR EXPRESION:b  {: RESULT = new Aritmeticos(a, b, OperadoresAritmeticos.MULTIPLICACION, aleft, aright); :} //%prec MULTIPLICACION
+              | EXPRESION:a DIV EXPRESION:b  {: RESULT = new Aritmeticos(a, b, OperadoresAritmeticos.DIVISION, aleft, aright); :} //%prec DIVISION
+              | EXPRESION:a MAS EXPRESION:b  {: RESULT = new Aritmeticos(a, b, OperadoresAritmeticos.SUMA, aleft, aright); :} //%prec SUMA
+              | EXPRESION:a MENOS EXPRESION:b  {: RESULT = new Aritmeticos(a, b, OperadoresAritmeticos.RESTA, aleft, aright); :} //%prec RESTA
+              
+              
+              
+              //RELACIONALES
+              | EXPRESION:a IGUALACION EXPRESION:b {: RESULT = new Relacionales(a, b, OperadoresRelacionales.IGUALACION, aleft, aright);    :} //%prec IGUALACION
+              | EXPRESION:a EXCLAMACION IGUAL EXPRESION:b {: RESULT = new Relacionales(a, b, OperadoresRelacionales.DIFERENTE, aleft, aright);    :} %prec DIFERENTE
+              | EXPRESION:a MENOR EXPRESION:b {: RESULT = new Relacionales(a, b, OperadoresRelacionales.MENORQUE, aleft, aright);    :} %prec MENORQ
+              | EXPRESION:a MAYOR EXPRESION:b {: RESULT = new Relacionales(a, b, OperadoresRelacionales.MAYORQUE, aleft, aright);    :} %prec MAYORQ
+              | EXPRESION:a MENOR IGUAL EXPRESION:b {: RESULT = new Relacionales(a, b, OperadoresRelacionales.MENORIGUAL, aleft, aright);  :} %prec MENORIGUAL
+              | EXPRESION:a MAYOR IGUAL EXPRESION:b {: RESULT = new Relacionales(a, b, OperadoresRelacionales.MAYORIGUAL, aleft, aright);  :} %prec MAYORIGUAL
+              
+              //LOGICOS
+              | EXPRESION:a OR EXPRESION:b {:    RESULT = new Logicos(a, b, OperadoresLogicos.OR, aleft, aright);    :}
+              | EXPRESION:a AND EXPRESION:b {:    RESULT = new Logicos(a, b, OperadoresLogicos.AND, aleft, aright);    :}
+              | EXPRESION:a XOR EXPRESION:b {:    RESULT = new Logicos(a, b, OperadoresLogicos.XOR, aleft, aright);    :}
+              | EXCLAMACION EXPRESION:a {:    RESULT = new Logicos(a, OperadoresLogicos.NOT, aleft, aright); :} //%prec NOT
+
+              | PARABRE EXPRESION:a PARCIERRA  {: RESULT = a; :}
+              | PARABRE TIPOS:a PARCIERRA EXPRESION:b {: RESULT = new Casteo(a, b, aleft, aright); :} %prec CASTEO
+              | ENTERO:a       {: RESULT = new Token(Integer.parseInt(a), new Tipo(tipoDato.ENTERO), aleft, aright);:}   
+              | DECIMAL:a   {: RESULT = new Token(new Double(a), new Tipo(tipoDato.DECIMAL), aleft, aright);:}
+              
+              | CHAR:a {: RESULT = new Token(a, new Tipo(tipoDato.CARACTER), aleft, aright); :}
+              | CADENA:a    {: RESULT = new Token(a, new Tipo(tipoDato.CADENA), aleft, aright);:}
+              | ACCESO_VECTORLISTA:a {: RESULT = a; :}
+              
+              | ID:a            {: RESULT = new AccesoVar(a, aleft, aright);  :}
+              
+              
+              | ID:a PARABRE PARAMSLLAMADA:b PARCIERRA {: RESULT = new Llamada(a, b, aleft, aright); :}
+              | ID:a PARABRE PARCIERRA {: RESULT = new Llamada(a, new LinkedList<Instruccion>(), aleft, aright); :}
+              | ID:a PUNTO _remove PARABRE EXPRESION:b PARCIERRA {: RESULT = new Remove(a, b, aleft, aright); :}
+              | LENGTH PARABRE EXPRESION:a PARCIERRA {: RESULT = new Length(a, aleft, aright); :}
+              | TOSTRING PARABRE EXPRESION:a PARCIERRA {: RESULT = new ToString(a, aleft, aright); :}
+              | ROUND PARABRE EXPRESION:a PARCIERRA {: RESULT = new Round(a, aleft, aright); :}
+              | ID:a PUNTO FIND PARABRE EXPRESION:b PARCIERRA {: RESULT = new Find(a, b, aleft, aright); :}
+              
+              | TRUE:a        {:   RESULT = new Token(true, new Tipo(tipoDato.BOOLEANO), aleft, aright );   :}
+              | FALSE:a       {:   RESULT = new Token(false, new Tipo(tipoDato.BOOLEANO), aleft, aright );    :}
+               
+              
+
+;

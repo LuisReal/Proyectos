@@ -1,0 +1,229 @@
+start with INICIO;
+
+INICIO ::= 
+            |INSTRUCCIONES:a   
+;
+
+INSTRUCCIONES ::= INSTRUCCIONES:a INSTRUCCION:b 
+                | INSTRUCCION:a               
+;
+INSTRUCCION ::= PRINT PARABRE EXPRESION:a PARCIERRA PUNTOCOMA 
+                | DECLARACION:a     
+                | ASIGNACION:a      
+                | INCREMENTO:a      
+                | DECREMENTO:a      
+                
+                | IF:a              
+                | SWITCH:a          
+                | WHILE:a           
+                | DO_WHILE:a        
+                | FOR:a             
+                | BREAK:a           
+                | CONTINUE:a
+		| METODO:a           
+                | FUNCION:a          
+                | RETURN:a           
+                | STARTT:a           
+                | LLAMADA:a          
+                | DECLARACIONLISTA:a 
+                | DECLARACIONVECTOR:a 
+                | APPEND:a              
+                | error PUNTOCOMA
+                | ERROR 
+;
+
+
+IF ::= _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder 
+        | _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder _else llaveizq INSTRUCCIONES:c llaveder 
+        | _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder ELSEIF:c 
+        | _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder ELSEIF:c _else llaveizq INSTRUCCIONES:d llaveder  
+;
+ELSEIF ::=  ELSEIF:m _else _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder 
+            | _else _if PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder;
+
+
+
+SWITCH ::= _switch PARABRE EXPRESION:a PARCIERRA llaveizq CASES_LIST:b DEFAULT:c llaveder 
+           | _switch PARABRE EXPRESION:a PARCIERRA llaveizq CASES_LIST:b llaveder 
+           | _switch PARABRE EXPRESION:a PARCIERRA llaveizq DEFAULT:b llaveder ;
+
+CASES_LIST ::=
+      CASES_LIST:a CASE:b 
+    | CASE:b 
+;
+
+CASE ::= _case EXPRESION:a DOSPUNTOS INSTRUCCIONES:b ;
+
+DEFAULT ::= _default DOSPUNTOS INSTRUCCIONES:a
+           ;
+
+
+FOR ::= _for PARABRE ASIGNACION:a EXPRESION:b PUNTOCOMA ACTUALIZAR_FOR:c PARCIERRA llaveizq INSTRUCCIONES:d llaveder 
+        | _for PARABRE DECLARACION:a EXPRESION:b PUNTOCOMA ACTUALIZAR_FOR:c PARCIERRA llaveizq INSTRUCCIONES:d llaveder 
+        
+;
+
+ACTUALIZAR_FOR ::= ID:a IGUAL EXPRESION:b 
+                   |ID:a MAS MAS  
+                   |ID:a MENOS MENOS  
+; 
+
+WHILE ::= _while PARABRE EXPRESION:a PARCIERRA llaveizq INSTRUCCIONES:b llaveder 
+;
+
+DO_WHILE ::= _do llaveizq INSTRUCCIONES:a llaveder _while PARABRE EXPRESION:b PARCIERRA PUNTOCOMA 
+;
+
+
+BREAK ::= _break:a PUNTOCOMA 
+;
+
+CONTINUE ::= _continue:a PUNTOCOMA 
+;
+
+INCREMENTO ::= ID:a MAS MAS PUNTOCOMA 
+;
+
+DECREMENTO ::= ID:a MENOS MENOS PUNTOCOMA
+;
+
+
+DECLARACION ::= VAR  ID:b DOSPUNTOS TIPOS:a IGUAL EXPRESION:c PUNTOCOMA 
+                | VAR ID:b DOSPUNTOS TIPOS:a PUNTOCOMA
+;   
+
+DECLARACIONLISTA ::= _list MENOR TIPOS:a MAYOR ID:b IGUAL _new _list PARABRE PARCIERRA PUNTOCOMA
+                    
+;
+
+DECLARACIONVECTOR ::= VAR ID:a DOSPUNTOS TIPOS:b corcheteA corcheteC IGUAL corcheteA LISTAVALORES_1D:c corcheteC PUNTOCOMA
+                    | VAR ID:a DOSPUNTOS TIPOS:b corcheteA corcheteC corcheteA corcheteC
+                    IGUAL corcheteA LISTAVALORES_2D:c corcheteC PUNTOCOMA
+                    
+;
+
+
+LISTAVALORES_1D ::= LISTAVALORES_1D:a COMA EXPRESION:b 
+                | EXPRESION:a         
+;
+
+LISTAVALORES_2D ::= LISTAVALORES_2D:a COMA corcheteA LISTAVALORES_1D:b corcheteC
+            
+          | corcheteA LISTAVALORES_1D:a corcheteC
+           
+;
+
+
+APPEND ::= ID:a PUNTO _append PARABRE EXPRESION:b PARCIERRA PUNTOCOMA 
+;
+
+
+
+
+ACCESO_VECTORLISTA ::= ID:a corcheteA EXPRESION:b corcheteC 
+                    | ID:a corcheteA EXPRESION:b corcheteC corcheteA EXPRESION:j corcheteC 
+                   
+;
+
+
+
+ASIGNACION ::= 
+                 ACCESO_VECTORLISTA:a  IGUAL EXPRESION:c PUNTOCOMA 
+                | ID:a IGUAL EXPRESION:b PUNTOCOMA 
+              
+;
+
+METODO ::= VOID:a ID:b PARABRE PARCIERRA llaveizq INSTRUCCIONES:c llaveder {: RESULT=new Metodo(b, new LinkedList<HashMap>(), c, null, aleft, aright);:}
+            | VOID:a ID:b PARABRE PARAMS:p PARCIERRA llaveizq INSTRUCCIONES:c llaveder    
+;
+
+FUNCION ::= TIPOS:a ID:b PARABRE PARCIERRA llaveizq INSTRUCCIONES:c llaveder
+            
+          
+            | TIPOS:a ID:b PARABRE PARAMS:p PARCIERRA llaveizq INSTRUCCIONES:c llaveder
+            
+;
+
+
+RETURN ::= _return EXPRESION:a PUNTOCOMA
+           | _return:a PUNTOCOMA  
+;
+
+PARAMS ::= PARAMS:a COMA TIPOS:b ID:c
+                                   
+        |  TIPOS:a ID:b               
+;
+
+STARTT ::= START ID:a PARABRE PARCIERRA PUNTOCOMA 
+        | START ID:a PARABRE PARAMSLLAMADA:b PARCIERRA PUNTOCOMA
+;
+
+LLAMADA ::= ID:a PARABRE PARAMSLLAMADA:b PARCIERRA PUNTOCOMA
+            | ID:a PARABRE PARCIERRA PUNTOCOMA    
+            
+;
+
+PARAMSLLAMADA ::= PARAMSLLAMADA:a COMA EXPRESION:b 
+                | EXPRESION:a                       
+;
+
+TIPOS ::=   INT         
+          | DOUBLE      
+          | BOOL      
+          | STRING      
+          | _CHAR      
+;
+
+
+
+
+EXPRESION ::=  MENOS EXPRESION:a          
+              | EXPRESION:a POTENCIA EXPRESION:b  
+              | EXPRESION:a PORCENTAJE EXPRESION:b  
+              | EXPRESION:a POR EXPRESION:b  
+              | EXPRESION:a DIV EXPRESION:b  
+              | EXPRESION:a MAS EXPRESION:b  
+              | EXPRESION:a MENOS EXPRESION:b  
+              
+              
+              
+              //RELACIONALES
+              | EXPRESION:a IGUALACION EXPRESION:b 
+              | EXPRESION:a EXCLAMACION IGUAL EXPRESION:b 
+              | EXPRESION:a MENOR EXPRESION:b 
+              | EXPRESION:a MAYOR EXPRESION:b 
+              | EXPRESION:a MENOR IGUAL EXPRESION:b 
+              | EXPRESION:a MAYOR IGUAL EXPRESION:b 
+              
+              //LOGICOS
+              | EXPRESION:a OR EXPRESION:b 
+              | EXPRESION:a AND EXPRESION:b 
+              | EXPRESION:a XOR EXPRESION:b 
+              | EXCLAMACION EXPRESION:a 
+
+              | PARABRE EXPRESION:a PARCIERRA  
+              | PARABRE TIPOS:a PARCIERRA EXPRESION:b 
+              | ENTERO:a       
+              | DECIMAL:a   
+              
+              | CHAR:a 
+              | CADENA:a   
+              | ACCESO_VECTORLISTA:a 
+              
+              | ID:a           
+              
+              
+              | ID:a PARABRE PARAMSLLAMADA:b PARCIERRA 
+              | ID:a PARABRE PARCIERRA 
+              | ID:a PUNTO _remove PARABRE EXPRESION:b PARCIERRA 
+              | LENGTH PARABRE EXPRESION:a PARCIERRA 
+              | TOSTRING PARABRE EXPRESION:a PARCIERRA 
+	      | ROUND PARABRE EXPRESION:a PARCIERRA
+              | ID:a PUNTO FIND PARABRE EXPRESION:b PARCIERRA 
+              
+              | TRUE:a        
+              | FALSE:a      
+               
+              
+
+;
