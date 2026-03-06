@@ -1,0 +1,3 @@
+proyecto1.LaminaCrearVenta
+proyecto1.CrearVenta
+proyecto1.LaminaCrearVenta$Agregar

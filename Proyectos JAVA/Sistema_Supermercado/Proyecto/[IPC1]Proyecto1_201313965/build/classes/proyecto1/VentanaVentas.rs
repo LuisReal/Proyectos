@@ -1,0 +1,7 @@
+proyecto1.LaminaVentanaVentas$CrearVentas
+proyecto1.LaminaVentanaVentas$ConsultarProductos
+proyecto1.LaminaVentanaVentas$CargarVentas
+proyecto1.LaminaVentanaVentas$DashboardVentasOyente
+proyecto1.LaminaVentanaVentas
+proyecto1.LaminaVentanaVentas$ConsultarVentas
+proyecto1.VentanaVentas

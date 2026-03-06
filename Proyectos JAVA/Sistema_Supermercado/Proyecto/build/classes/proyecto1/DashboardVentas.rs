@@ -1,0 +1,4 @@
+proyecto1.DashboardVentas
+proyecto1.LaminaDashboardProductos
+proyecto1.LaminaDashboardProdu
+proyecto1.LaminaDashboardVentas

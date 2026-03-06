@@ -1,0 +1,5 @@
+proyecto1.ModificaProducto
+proyecto1.ModificarProducto
+proyecto1.LaminaModificaProducto
+proyecto1.LaminaModificaProducto$Seleccionar
+proyecto1.LaminaModificaProducto$Guardar

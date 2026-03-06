@@ -1,0 +1,12 @@
+Contraseña de administrador
+
+usuario: admin      contraseña: admin123.
+
+Para incluir las librerias externas como jfreechart y pdfbox en el jar, agregar esto en el build.xml
+<target name="-post-jar">
+    <echo message="Empaquetando librerías externas dentro del jar..." />
+    <jar destfile="${dist.jar}" update="true">
+        <zipgroupfileset dir="${dist.dir}/lib" includes="*.jar"/>
+    </jar>
+    <echo message="Jar unificado creado correctamente: ${dist.jar}" />
+</target>
