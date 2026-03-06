@@ -1,0 +1,135 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventananueva_venta.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventananueva_venta.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventananuevo_producto.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventananuevo_producto.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventanaclientes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventanaclientes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventanaclientes.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventanaclientes.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventanaconsultacliente.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventanaconsultacliente.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventanaconsultaventas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventanaconsultaventas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|c:\\users\\fernando\\desktop\\ipc1_2020_\\[ipc1]proyecto1_c#_mysql\\app_escritorio\\app_escritorio\\ventanaconsultaventas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C13A3294-9958-4214-9F66-CCEA58389902}|App_Escritorio\\App_Escritorio.csproj|solutionrelative:app_escritorio\\ventanaconsultaventas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VentanaNueva_Venta.xaml",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaNueva_Venta.xaml",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaNueva_Venta.xaml",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaNueva_Venta.xaml",
+              "RelativeToolTip": "App_Escritorio\\VentanaNueva_Venta.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-25T20:26:31.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VentanaNuevo_Producto.xaml",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaNuevo_Producto.xaml",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaNuevo_Producto.xaml",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaNuevo_Producto.xaml",
+              "RelativeToolTip": "App_Escritorio\\VentanaNuevo_Producto.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-25T20:26:06.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VentanaConsultaCliente.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaConsultaCliente.xaml.cs",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaConsultaCliente.xaml.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaConsultaCliente.xaml.cs",
+              "RelativeToolTip": "App_Escritorio\\VentanaConsultaCliente.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAxwCEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T20:13:44.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VentanaConsultaVentas.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaConsultaVentas.xaml.cs",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaConsultaVentas.xaml.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaConsultaVentas.xaml.cs",
+              "RelativeToolTip": "App_Escritorio\\VentanaConsultaVentas.xaml.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwE8AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T20:11:36.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VentanaConsultaVentas.xaml",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaConsultaVentas.xaml",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaConsultaVentas.xaml",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaConsultaVentas.xaml",
+              "RelativeToolTip": "App_Escritorio\\VentanaConsultaVentas.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-25T20:11:38.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VentanaClientes.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaClientes.xaml.cs",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaClientes.xaml.cs",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaClientes.xaml.cs",
+              "RelativeToolTip": "App_Escritorio\\VentanaClientes.xaml.cs",
+              "ViewState": "AgIAAIABAAAAAAAAAAAEwJYBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T03:12:27.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VentanaClientes.xaml",
+              "DocumentMoniker": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaClientes.xaml",
+              "RelativeDocumentMoniker": "App_Escritorio\\VentanaClientes.xaml",
+              "ToolTip": "C:\\Users\\Fernando\\Desktop\\IPC1_2020_\\[IPC1]Proyecto1_C#_MySQL\\App_Escritorio\\App_Escritorio\\VentanaClientes.xaml",
+              "RelativeToolTip": "App_Escritorio\\VentanaClientes.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-18T03:12:24.203Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

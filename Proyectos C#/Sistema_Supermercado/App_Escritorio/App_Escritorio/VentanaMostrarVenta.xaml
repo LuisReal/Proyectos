@@ -1,0 +1,74 @@
+﻿<Window x:Class="App_Escritorio.VentanaMostrarVenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App_Escritorio"
+        mc:Ignorable="d"
+        Title="Informacion de la Venta" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF00BEFF"/>
+                <GradientStop Color="White" Offset="0.997"/>
+                <GradientStop Color="White" Offset="0.449"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="NIT del cliente" HorizontalAlignment="Left" Margin="124,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="241" FontFamily="Arial Rounded MT Bold" FontSize="16"/>
+        <Label x:Name="label_mostrar_nit" Content="0" HorizontalAlignment="Left" Margin="400,16,0,0" Grid.Row="1" VerticalAlignment="Top" Width="241" FontFamily="Arial Rounded MT Bold" FontSize="16"/>
+        <Label Content="Productos de la venta" HorizontalAlignment="Left" Margin="124,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="241" FontFamily="Arial Rounded MT Bold" FontSize="16"/>
+
+        <DataGrid x:Name="Tabla" AutoGenerateColumns="True" Grid.Row="3" Grid.RowSpan="3" ColumnWidth="*">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#FF007ACC"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <!-- color del borde -->
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <!-- grosor del borde: derecha e inferior -->
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Margin" Value="0,0,0,1"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#DDEEFF"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+        <Label Content="Total de la venta" HorizontalAlignment="Left" Margin="124,0,0,0" Grid.Row="6" VerticalAlignment="Center" Width="241" FontFamily="Arial Rounded MT Bold" FontSize="16"/>
+        <Label x:Name="label_mostrar_total" Content="0.00" HorizontalAlignment="Left" Margin="400,15,0,0" Grid.Row="6" VerticalAlignment="Top" Width="241" FontFamily="Arial Rounded MT Bold" FontSize="16"/>
+        <Button Content="Eliminar" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="37" Width="104" Background="#FFE61F1F" Foreground="#FFF9F9F9" FontSize="18" FontWeight="Bold" Click="deleteSale"/>
+    </Grid>
+</Window>
