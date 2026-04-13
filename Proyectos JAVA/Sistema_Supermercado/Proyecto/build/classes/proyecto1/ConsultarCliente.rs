@@ -1,4 +1,3 @@
-proyecto1.LaminaDatosClientes.Eliminar
 proyecto1.LaminaDatosClientes$Eliminar
 proyecto1.ConsultarCliente
 proyecto1.LaminaDatosClientes

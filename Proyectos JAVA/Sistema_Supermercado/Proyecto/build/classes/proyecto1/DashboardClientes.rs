@@ -1,0 +1,2 @@
+proyecto1.DashboardClientes
+proyecto1.Lamina2

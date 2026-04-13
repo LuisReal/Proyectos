@@ -131,7 +131,7 @@ class Panel extends JPanel {
                     campo1.setText("");
                     campo2.setText("");
                     
-                    Administracion administracion = new Administracion(loginRef);
+                    Administracion2 administracion = new Administracion2();
 
                     administracion.setVisible(true);
                     administracion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
