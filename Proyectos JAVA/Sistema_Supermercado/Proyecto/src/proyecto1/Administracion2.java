@@ -144,20 +144,30 @@ class MainPanel extends JPanel{
         JPanel panelCentral = new JPanel(new CardLayout()); //CardLayout se usa para mostrar los paneles segun el boton presionado
         panelCentral.setBorder(BorderFactory.createLineBorder(Color.GREEN)); //borde del panel de color negro
         
-        PanelClientes panelClientes = new PanelClientes();
-        PanelProductos panelProductos = new PanelProductos();
+        PanelDashboard panel_dashboard = new PanelDashboard();
+        //PanelProductos panelProductos = new PanelProductos();
         PanelVentas panelVentas = new PanelVentas();
         
         
         //agregando paneles al panel central
-        panelCentral.add(panelClientes, "CLIENTES"); //CLIENTES es un identificador unico
-        panelCentral.add(panelProductos, "PRODUCTOS");
+        panelCentral.add(panel_dashboard, "DASHBOARD"); //CLIENTES es un identificador unico
+        //panelCentral.add(panelProductos, "PRODUCTOS");
         panelCentral.add(panelVentas, "VENTAS");
         
         CardLayout cl = (CardLayout) panelCentral.getLayout();
 
-        b1.addActionListener(e -> cl.show(panelCentral, "CLIENTES")); //si presiono el boton1 se muestra el panel Clientes
-        b2.addActionListener(e -> cl.show(panelCentral, "PRODUCTOS"));
+        b1.addActionListener(e -> {
+            panel_dashboard.setButtons("clientes");
+            panel_dashboard.updateClientsData();
+            cl.show(panelCentral, "DASHBOARD");
+        }); //si presiono el boton1 se muestra el panel Clientes
+        
+        b2.addActionListener(e -> {
+            panel_dashboard.setButtons("productos");
+            panel_dashboard.uploadProductsData();
+            panel_dashboard.updateProductsData();
+            cl.show(panelCentral, "DASHBOARD");
+        });
         b3.addActionListener(e -> cl.show(panelCentral, "VENTAS"));
 
         //agregando los paneles al panel principal

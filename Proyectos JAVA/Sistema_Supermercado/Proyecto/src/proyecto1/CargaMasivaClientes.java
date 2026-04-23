@@ -102,12 +102,9 @@ public class CargaMasivaClientes {
         }
 
         if (q == 0) {
-
-            //Lamina lamina = new Lamina();
-            //lamina.setDatos(elemento);// pasa los datos cargados a la clase class Lamina de la clase VentanaClientes
             
-            PanelClientes lamina = new PanelClientes();
-            lamina.setDatos(elemento);// pasa los datos cargados a la clase PanelClientes de la clase Administracion2
+            PanelDashboard lamina = new PanelDashboard();
+            lamina.setDatos(elemento);// pasa los datos cargados a la clase PanelDashboard de la clase Administracion2
 
         }else{
         

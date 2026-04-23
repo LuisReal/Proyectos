@@ -59,10 +59,11 @@ class LaminaDashboardProductos extends JPanel {
         //scroll.setBounds(200, 80, 500, 100);// modifica el tamano de la tabla junto con el scroll
         //add(scroll);
 
-        DefaultCategoryDataset datos;
+        
 
         
 //------------------------codigo anterior----------------------------------------------------------------        
+        
         
         int k = 0;
         String[] cantidad_productos = new String[100];
@@ -233,7 +234,7 @@ class LaminaDashboardProductos extends JPanel {
         }
 
         //------------------------*****FINALIZA CODIGO NUEVO*********--------------------------------------------
-        datos = new DefaultCategoryDataset();
+        DefaultCategoryDataset datos = new DefaultCategoryDataset();
 
         for (int i = 0; i < (rangos.length - 1); i++) {// k es el contador que lleva el conteo de las veces que se repite los numeros
 
