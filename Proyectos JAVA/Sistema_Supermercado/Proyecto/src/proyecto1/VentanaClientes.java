@@ -60,8 +60,8 @@ class Lamina extends JPanel {
         Dashboard dash = new Dashboard();
         dashboard.addActionListener(dash);
 
-        CrearClientes nuevo = new CrearClientes();
-        creacion_clientes.addActionListener(nuevo);
+        /*CrearClientes nuevo = new CrearClientes();
+        creacion_clientes.addActionListener(nuevo);*/
 
         Consulta consultar = new Consulta();
         consulta.addActionListener(consultar);
@@ -77,13 +77,13 @@ class Lamina extends JPanel {
 
     }
 
-    public void setNuevoElemento() {
+    /*public void setNuevoElemento() {
 
         Lamina3 lamina = new Lamina3();
 
         this.elementoCliente = lamina.getElemento(); // proviene de la clase NuevoCliente (Lamina3)
 
-    }
+    }*/
 
     private class Dashboard implements ActionListener {
 
@@ -117,7 +117,7 @@ class Lamina extends JPanel {
 
     }
 
-    private class CrearClientes implements ActionListener {
+    /*private class CrearClientes implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -132,7 +132,7 @@ class Lamina extends JPanel {
 
         }
 
-    }
+    }*/
 
     private class Consulta implements ActionListener {
 

@@ -3,18 +3,19 @@ package proyecto1;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.io.File;
 
 
 public class CrearCliente extends JFrame {
-
-    public CrearCliente() {
+    
+   
+    
+    public CrearCliente(Object[][] elemento) {
 
         setTitle("Nuevo Cliente");
         setResizable(false);
         setBounds(400, 100, 450, 400);
 
-        Lamina3 lamina = new Lamina3();
+        Lamina3 lamina = new Lamina3(elemento);
         add(lamina);
 
     }
@@ -24,8 +25,8 @@ public class CrearCliente extends JFrame {
 class Lamina3 extends JPanel {
 
     // public static Object[][] nuevos = new Object[100][5];
-    public static Object[][] elemento = new Object[100][5]; // declarar static para que pueda recivir los elementos de la carga masiva
-
+    //public static Object[][] elemento = new Object[100][5]; // declarar static para que pueda recivir los elementos de la carga masiva
+    private Object[][] elemento; //no se usa static para poder mantener una referencia, asi comparte la misma memoria con elemento de la clase PanelClientes
     //public int z = 0;
     public int x = 0;
     String avatar = "";
@@ -46,8 +47,10 @@ class Lamina3 extends JPanel {
     JFileChooser chooser;
     
 
-    public Lamina3() {
-
+    public Lamina3(Object[][] elemento) {
+        
+        this.elemento = elemento;
+        
         setLayout(null);
 
         
@@ -105,11 +108,11 @@ class Lamina3 extends JPanel {
 
     }
 
-    public void setElemento(Object[][] elemento) {
+    /*public void setElemento(Object[][] elemento) {
 
-        this.elemento = elemento; // proviene de la clase VentanaClientes
+        this.elemento = elemento; // proviene de la clase PanelClientes
 
-    }
+    }*/
 
     private class Seleccionar implements ActionListener {
 
@@ -137,7 +140,8 @@ class Lamina3 extends JPanel {
         public void actionPerformed(ActionEvent w) {
 
             int contador = 0;
-
+            
+            
             for (int d = 0; d < elemento.length; d++) {
 
                 if (elemento[d][3] != null && campo_nit.getText().equals(elemento[d][3])) {
@@ -151,11 +155,13 @@ class Lamina3 extends JPanel {
             }
 
             int z = 0;
-
+            
+            System.out.println("***********************Clase CrearCliente************************************");
+            
             for (int j = 0; j < elemento.length; j++) {
-
+                
                 if (contador != 1) { // si ya existe el NIT el contador ==1 y nunca entra aca 
-
+                    
                     if (elemento[j][3] == null) { // evalua si el arreglo esta vacio para almacenar los datos
 
                         z++;// incrementa 1 para poder entrar a la siguiente instruccion y solo guarda una vez los datos

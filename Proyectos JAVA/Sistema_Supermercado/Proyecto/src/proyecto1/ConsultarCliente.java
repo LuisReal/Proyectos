@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.net.URL;
 import javax.imageio.ImageIO;
 
 public class ConsultarCliente extends JFrame {
@@ -152,7 +153,8 @@ class LaminaDatosClientes extends JPanel {
 
         Eliminar elimina = new Eliminar();
         eliminar.addActionListener(elimina);
-
+        
+        System.out.println("MOSTRANDO LA IMAGEN DEL CLIENTE*******************");
         for (int j = 0; j < elemento.length; j++) {
 
             if (elemento[j][0] != null) {
@@ -162,24 +164,31 @@ class LaminaDatosClientes extends JPanel {
                 sexo[j] = String.valueOf(elemento[j][2]);
                 nits[j] = String.valueOf(elemento[j][3]);
                 foto[j] = String.valueOf(elemento[j][4]);
-                System.out.println("\nLa ruta de la imagen es: " + foto[j]);
+                
+                //System.out.println("\nLa ruta de la imagen es: " + foto[j]);
 
                 try {
+                   
+                    if ("".equals(foto[j])) {
+                        JOptionPane.showMessageDialog(null, "La ruta de la imagen no es válida");
+                    } else{
+                        URL ruta = getClass().getResource(foto[j]);
+                        
+                        imagen = ImageIO.read(ruta); // se maneja este tipo de ruta /clientes/C23.jpg
 
-                    imagen = ImageIO.read(getClass().getResource(foto[j])); // se maneja este tipo de ruta /clientes/C23.jpg
-
-                    iconos[j] = new ImageIcon(new ImageIcon(imagen).getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
-
+                        iconos[j] = new ImageIcon(new ImageIcon(imagen).getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+                    }
                     //icono1 = icono;
                 } catch (IOException a) {
 
-                    System.out.println("No se encontro la imagen");
+                    System.out.println("Error al cargar la imagen");
                 }
 
             }
 
         }
-
+        
+        
         for (int i = 0; i < elemento.length; i++) {
 
             if (nit.equals(elemento[i][3])) {
@@ -199,14 +208,19 @@ class LaminaDatosClientes extends JPanel {
                 mostrar_nit = new JLabel(nits[i]);
                 mostrar_nit.setBounds(150, 170, 100, 30);
                 add(mostrar_nit);
-
-                avatar_foto = new JLabel(iconos[i]);
-                avatar_foto.setBounds(150, 220, 200, 150);
-                add(avatar_foto);
+                
+                if(iconos[i]!= null){ //si iconos no esta vacio
+                    avatar_foto = new JLabel(iconos[i]);
+                    avatar_foto.setBounds(150, 220, 200, 150);
+                    add(avatar_foto);
+                }
+                
 
             }
 
         }
+        
+        
 
     } // fin del constructor LaminaDatosClientes
 
