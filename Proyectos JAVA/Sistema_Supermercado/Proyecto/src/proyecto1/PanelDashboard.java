@@ -462,7 +462,7 @@ class PanelDashboard extends JPanel{
     
     public void setClientsPieChart(Double porcentajeF, Double porcentajeM){
         
-        // 🔥 eliminar gráfica anterior
+        // eliminar gráfica anterior
         if (Pie != null) {
             panelAbajo.remove(Pie);
         }
@@ -983,14 +983,6 @@ class PanelDashboard extends JPanel{
         this.elementoCliente = elemento; // proviene de la clase CargaMasiva
 
     }
-
-    /*public void setNuevoElemento() {
-
-        Lamina3 lamina = new Lamina3();
-
-        this.elementoCliente = lamina.getElemento(); // proviene de la clase NuevoCliente (Lamina3)
-
-    }*/
     
     private class Upload implements ActionListener {
 
@@ -1036,15 +1028,21 @@ class PanelDashboard extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
-            CrearCliente nuevo = new CrearCliente(elementoCliente);
-            nuevo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            nuevo.setVisible(true);
-
-           /* Lamina3 elementos = new Lamina3();
-            elementos.setElemento(elementoCliente);*/
-            // pasa los valores ingresados por carga masiva (elemento) a NuevoCliente en clase Lamina3
-
+            
+            if(dashboard_button.getText().equals("DashboardClientes")){
+                    
+                CrearCliente nuevo_cliente = new CrearCliente(elementoCliente);
+                nuevo_cliente.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                nuevo_cliente.setVisible(true);
+                    
+            }else if(dashboard_button.getText().equals("DashboardProductos")){
+                
+                CrearProducto nuevo_producto = new CrearProducto(elementoProducto);
+                nuevo_producto.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                nuevo_producto.setVisible(true);
+                
+            }
+          
         }
 
     }
@@ -1053,11 +1051,24 @@ class PanelDashboard extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent w) {
-
-            ConsultarCliente consulta = new ConsultarCliente();
-            consulta.setElemento(elementoCliente); // envia los elementos de la carga masiva + nuevos creados a la clase CONSULTAR
-            consulta.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            consulta.setVisible(true);
+            
+            if(dashboard_button.getText().equals("DashboardClientes")){
+                    
+                ConsultarCliente consulta = new ConsultarCliente();
+                consulta.setElemento(elementoCliente); // envia los elementos de la carga masiva + nuevos creados a la clase CONSULTAR
+                consulta.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                consulta.setVisible(true);
+                    
+            }else if(dashboard_button.getText().equals("DashboardProductos")){
+                
+                ConsultarProducto consulta = new ConsultarProducto();
+                consulta.setElemento(elementoProducto); // envia los elementos de la carga masiva + nuevos creados a la clase CONSULTAR
+                consulta.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                consulta.setVisible(true);
+                
+            }
+            
+            
         }
 
     }
@@ -1066,11 +1077,24 @@ class PanelDashboard extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent w) {
-
-            ModificarCliente modifica = new ModificarCliente(); // envia todos los elementos CargaMasiva y NuevoCliente
-            modifica.setElemento(elementoCliente);
-            modifica.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            modifica.setVisible(true);
+            
+            if(dashboard_button.getText().equals("DashboardClientes")){
+                    
+                ModificarCliente modifica = new ModificarCliente(); // envia todos los elementos CargaMasiva y NuevoCliente
+                modifica.setElemento(elementoCliente);
+                modifica.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                modifica.setVisible(true);
+                    
+            }else if(dashboard_button.getText().equals("DashboardProductos")){
+                
+                ModificarProducto modifica = new ModificarProducto(); // envia todos los elementos CargaMasiva y NuevoCliente
+                modifica.setElemento(elementoProducto);
+                modifica.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                modifica.setVisible(true);
+                
+            }
+            
+            
 
         }
 

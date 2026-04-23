@@ -66,8 +66,8 @@ class LaminaVentanaProductos extends JPanel {
         DashboardProductosOyente dash1 = new DashboardProductosOyente();
         dashboard.addActionListener(dash1);
 
-        CreacionProductos miProducto = new CreacionProductos();
-        creacion_productos.addActionListener(miProducto);
+        /*CreacionProductos miProducto = new CreacionProductos();
+        creacion_productos.addActionListener(miProducto);*/
 
         ConsultarProductos consultarP = new ConsultarProductos();
         consulta.addActionListener(consultarP);
@@ -111,6 +111,7 @@ class LaminaVentanaProductos extends JPanel {
         }
     }
 
+    /*
     private class CreacionProductos implements ActionListener {
 
         @Override
@@ -124,7 +125,7 @@ class LaminaVentanaProductos extends JPanel {
             crear1.setElemento(elementoProducto); // envia a la clase CrearProducto (a la Lamina)
         }
 
-    }
+    }*/
 
     private class ConsultarProductos implements ActionListener {
 

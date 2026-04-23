@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.net.URL;
 import javax.imageio.ImageIO;
 
 public class ConsultarProducto extends JFrame {
@@ -148,7 +149,7 @@ class LaminaDatosProductos extends JPanel {
 
         Eliminar elimina = new Eliminar();
         eliminar.addActionListener(elimina);
-
+        System.out.println("***************ANALIZANDO LA IMAGEN DE PRODUCTO********************************");
         for (int j = 0; j < elementoProducto.length; j++) {
 
             if (elementoProducto[j][0] != null) {
@@ -156,15 +157,23 @@ class LaminaDatosProductos extends JPanel {
                 cadenaNombres[j] = String.valueOf(elementoProducto[j][0]);
                 cadenaPrecios[j] = String.valueOf(elementoProducto[j][1]);
                 cadenaCantidad[j] = String.valueOf(elementoProducto[j][2]);
-
                 foto[j] = String.valueOf(elementoProducto[j][3]); //esto contiene la ruta de la imagen tipo: /productos/P27.jpg
 
                 try {
+                    System.out.println("***************ANALIZANDO LA IMAGEN DE PRODUCTO 2121551 ********************************");
+                    if ("".equals(foto[j])) {
+                        
+                        JOptionPane.showMessageDialog(null, "La ruta de la imagen no es válida");
+                        
+                    } else{
+                        
+                        URL ruta = getClass().getResource(foto[j]);
+                      
+                        imagen = ImageIO.read(ruta); // se maneja este tipo de ruta /productos/P27.jpg
 
-                    imagen = ImageIO.read(getClass().getResource(foto[j])); // se maneja este tipo de ruta /productos/P27.jpg
-
-                    iconos[j] = new ImageIcon(new ImageIcon(imagen).getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
-
+                        iconos[j] = new ImageIcon(new ImageIcon(imagen).getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+                    
+                    }
                     //icono1 = icono;
                 } catch (IOException a) {
 
@@ -190,11 +199,12 @@ class LaminaDatosProductos extends JPanel {
                 mostrar_cantidad_producto = new JLabel(cadenaCantidad[i]);
                 mostrar_cantidad_producto.setBounds(150, 120, 100, 30);
                 add(mostrar_cantidad_producto);
-
-                avatar_foto = new JLabel(iconos[i]);
-                avatar_foto.setBounds(100, 220, 200, 150);
-                add(avatar_foto);
-
+                
+                if(iconos[i]!= null){ //si iconos no esta vacio
+                    avatar_foto = new JLabel(iconos[i]);
+                    avatar_foto.setBounds(100, 220, 200, 150);
+                    add(avatar_foto);
+                }
             }
 
         } // fin del for

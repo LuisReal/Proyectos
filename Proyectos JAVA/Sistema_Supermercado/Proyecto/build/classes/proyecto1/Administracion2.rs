@@ -1,0 +1,16 @@
+proyecto1.Administracion2
+proyecto1.PanelClientes$Dashboard
+proyecto1.PanelClientes$ConsultarClientes
+proyecto1.PanelClientes$BotonCargar_Clientes
+proyecto1.MainPanel
+proyecto1.PanelClientes$ModificarClientes
+proyecto1.PanelVentas
+proyecto1.BotonCargar_Clientes
+proyecto1.PanelClientes$Modificar
+proyecto1.PanelClientes$Cargar_Clientes
+proyecto1.PanelClientes$Consulta
+proyecto1.PanelProductos
+proyecto1.PanelClientes
+proyecto1.PanelClientes$CargarClientes
+proyecto1.PanelClientes$CrearClientes
+proyecto1.PanelClientes$Consultar

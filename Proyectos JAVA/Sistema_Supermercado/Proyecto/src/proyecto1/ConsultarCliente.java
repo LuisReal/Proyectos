@@ -170,7 +170,9 @@ class LaminaDatosClientes extends JPanel {
                 try {
                    
                     if ("".equals(foto[j])) {
+                        
                         JOptionPane.showMessageDialog(null, "La ruta de la imagen no es válida");
+                        
                     } else{
                         URL ruta = getClass().getResource(foto[j]);
                         

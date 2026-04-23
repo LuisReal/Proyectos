@@ -6,13 +6,13 @@ import java.awt.event.*;
 
 public class CrearProducto extends JFrame {
 
-    public CrearProducto() {
+    public CrearProducto(Object[][] elemento) {
 
         setTitle("Crear Producto");
         setResizable(false);
         setBounds(400, 100, 350, 350);
 
-        LaminaCrearProducto lamina_crear = new LaminaCrearProducto();
+        LaminaCrearProducto lamina_crear = new LaminaCrearProducto(elemento);
         add(lamina_crear);
 
     }
@@ -21,9 +21,10 @@ public class CrearProducto extends JFrame {
 
 class LaminaCrearProducto extends JPanel {
 
-    public static Object[][] elementoProducto = new Object[100][4]; // declarar static para que pueda recivir los elementos de la carga masiva
-
-    //public int z = 0;
+   // public static Object[][] elementoProducto = new Object[100][4]; // declarar static para que pueda recivir los elementos de la carga masiva
+    
+    private Object[][] elemento; //no se usa static para poder mantener una referencia, asi comparte la misma memoria con elemento de la clase PanelClientes
+    
     public int x = 0;
 
     JLabel label_nombre_producto;
@@ -38,12 +39,14 @@ class LaminaCrearProducto extends JPanel {
     JButton seleccionar_imagen;
     JButton guardar;
 
-    String ruta_imagen;
+    String ruta_imagen=""; //importante inicializar como string de lo contrario guardara valor null
 
     JFileChooser chooser;
 
-    public LaminaCrearProducto() {
-
+    public LaminaCrearProducto(Object[][] elemento) {
+        
+        this.elemento = elemento;
+        
         setLayout(null);
 
         label_nombre_producto = new JLabel("Nombre");
@@ -92,7 +95,7 @@ class LaminaCrearProducto extends JPanel {
 
     public void setElemento(Object[][] elementoProducto) {
 
-        this.elementoProducto = elementoProducto; // proviene de la clase VentanaProductos
+        this.elemento = elementoProducto; // proviene de la clase 
 
     }
 
@@ -125,11 +128,11 @@ class LaminaCrearProducto extends JPanel {
 
             int contador = 0;
 
-            for (int d = 0; d < elementoProducto.length; d++) {
+            for (int d = 0; d < elemento.length; d++) {
 
-                if (campo_nombre_producto.getText().equals(elementoProducto[d][0])) {
+                if (campo_nombre_producto.getText().equals(elemento[d][0])) {
 
-                    System.out.println("El Producto ingresado ya existe en la posicion " + d + " " + elementoProducto[d][0]);
+                    System.out.println("El Producto ingresado ya existe en la posicion " + d + " " + elemento[d][0]);
                     JOptionPane.showMessageDialog(null, "El Producto ingresado ya existe");
 
                     contador++; // suma 1 al contador si ya existe el producto
@@ -140,27 +143,27 @@ class LaminaCrearProducto extends JPanel {
             int z = 0;
 
             // ------------- Almacenando la informacion ingresada en elementoProducto -----------------------
-            for (int j = 0; j < elementoProducto.length; j++) {
+            for (int j = 0; j < elemento.length; j++) {
 
                 if (contador != 1) { // si ya existe el producto el contador ==1 y nunca entra aca 
 
-                    if (elementoProducto[j][0] == null) { // evalua si el arreglo esta vacio para almacenar los datos
+                    if (elemento[j][0] == null) { // evalua si el arreglo esta vacio para almacenar los datos
 
                         z++;// incrementa 1 para poder entrar a la siguiente instruccion y solo guarda una vez los datos
 
                         if (z == 1) {
 
-                            elementoProducto[j][x] = campo_nombre_producto.getText();
-                            System.out.println("La posicion elemento " + j + "," + x + " = " + elementoProducto[j][x]);
+                            elemento[j][x] = campo_nombre_producto.getText();
+                            System.out.println("La posicion elemento " + j + "," + x + " = " + elemento[j][x]);
 
-                            elementoProducto[j][x + 1] = campo_precio_producto.getText();
-                            System.out.println("La posicion elemento " + j + "," + (x + 1) + " = " + elementoProducto[j][x + 1]);
+                            elemento[j][x + 1] = campo_precio_producto.getText();
+                            System.out.println("La posicion elemento " + j + "," + (x + 1) + " = " + elemento[j][x + 1]);
 
-                            elementoProducto[j][x + 2] = campo_cantidad_producto.getText();
-                            System.out.println("La posicion elemento " + j + "," + (x + 2) + " = " + elementoProducto[j][x + 2]);
+                            elemento[j][x + 2] = campo_cantidad_producto.getText();
+                            System.out.println("La posicion elemento " + j + "," + (x + 2) + " = " + elemento[j][x + 2]);
 
-                            elementoProducto[j][x + 3] = ruta_imagen; // se almacen la ruta de la imagen
-                            System.out.println("La posicion elemento " + j + "," + (x + 3) + " = " + elementoProducto[j][x + 3]);
+                            elemento[j][x + 3] = ruta_imagen; // se almacen la ruta de la imagen
+                            System.out.println("La posicion elemento " + j + "," + (x + 3) + " = " + elemento[j][x + 3]);
 
                         }
                     }// if (elemento[j][3] == null)
@@ -170,11 +173,11 @@ class LaminaCrearProducto extends JPanel {
             }//fin del for
 
             System.out.println("\nImprimiendo los valores de elementoProducto");
-            for (int i = 0; i < elementoProducto.length; i++) {
+            for (int i = 0; i < elemento.length; i++) {
                 
-                if (elementoProducto[i][0] != null) {
+                if (elemento[i][0] != null) {
 
-                    System.out.println("Producto: " + elementoProducto[i][0] + " Precio: " + elementoProducto[i][1] + " Cantidad: " + elementoProducto[i][2] + " Ruta imagen: " + elementoProducto[i][3]);
+                    System.out.println("Producto: " + elemento[i][0] + " Precio: " + elemento[i][1] + " Cantidad: " + elemento[i][2] + " Ruta imagen: " + elemento[i][3]);
                 }
             }
 
@@ -188,7 +191,7 @@ class LaminaCrearProducto extends JPanel {
 
     public Object[][] getElemento() {
 
-        return elementoProducto; // envia el elemento a la clase VentanaProductos
+        return elemento; // envia el elemento a la clase VentanaProductos
 
     }
 }
