@@ -1,4 +1,0 @@
-proyecto1.LaminaDatosVentas$Eliminar
-proyecto1.LaminaDatosVentas
-proyecto1.ConsultarVenta
-proyecto1.DatosVentas

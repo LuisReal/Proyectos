@@ -1,2 +1,0 @@
-proyecto1.DashboardProductos
-proyecto1.LaminaDashboardProductos

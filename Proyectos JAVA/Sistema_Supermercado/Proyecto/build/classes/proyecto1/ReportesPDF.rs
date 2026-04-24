@@ -1,7 +1,0 @@
-proyecto1.ConsultarIDVenta$Buscar
-proyecto1.ConsultarIDVenta
-proyecto1.LaminaReportesPDF
-proyecto1.LaminaReportesPDF$ProductosMasVendidos
-proyecto1.LaminaReportesPDF$GenerarFactura
-proyecto1.ReportesPDF
-proyecto1.LaminaReportesPDF$VentasMayorTotal

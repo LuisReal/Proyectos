@@ -1,5 +1,0 @@
-proyecto1.ModificaClientes
-proyecto1.LaminaModificaCliente
-proyecto1.LaminaModificaCliente$Seleccionar
-proyecto1.ModificarCliente
-proyecto1.LaminaModificaCliente$Guardar

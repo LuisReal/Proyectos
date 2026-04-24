@@ -1,4 +1,0 @@
-proyecto1.LaminaCrearProducto$Guardar
-proyecto1.LaminaCrearProducto$Seleccionar
-proyecto1.LaminaCrearProducto
-proyecto1.CrearProducto
