@@ -46,7 +46,7 @@ public class CargaMasivaVentas {
             System.out.println("El archivo no se ha encontrado");
         }
 
-        int m = 1;
+        
         cadena = new String[500];
 
         for (int j = 0; j < elementoVenta.length; j++) {

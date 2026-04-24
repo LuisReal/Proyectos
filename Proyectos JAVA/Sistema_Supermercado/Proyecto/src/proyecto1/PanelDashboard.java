@@ -160,7 +160,6 @@ class PanelDashboard extends JPanel{
         //el segundo panel se coloca automaticamente en la fila de abajo
         
         panelAbajo = new JPanel(new GridLayout(1, 2, 10, 0)); // 1 fila, 2 columnas
-        
         panelAbajo.setBorder(BorderFactory.createLineBorder(Color.BLACK));//borde del panel de color negro
         
         //************************************************************************************************************************
@@ -984,6 +983,9 @@ class PanelDashboard extends JPanel{
 
     }
     
+    public Object[][] getProductos() {
+        return this.elementoProducto;
+    }
     private class Upload implements ActionListener {
 
         @Override

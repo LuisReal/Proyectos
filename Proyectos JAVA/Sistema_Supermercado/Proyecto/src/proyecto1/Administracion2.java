@@ -145,7 +145,8 @@ class MainPanel extends JPanel{
         panelCentral.setBorder(BorderFactory.createLineBorder(Color.GREEN)); //borde del panel de color negro
         
         PanelDashboard panel_dashboard = new PanelDashboard();
-        //PanelProductos panelProductos = new PanelProductos();
+        panel_dashboard.uploadProductsData();
+        panel_dashboard.updateProductsData();
         PanelVentas panelVentas = new PanelVentas();
         
         
@@ -154,7 +155,7 @@ class MainPanel extends JPanel{
         //panelCentral.add(panelProductos, "PRODUCTOS");
         panelCentral.add(panelVentas, "VENTAS");
         
-        CardLayout cl = (CardLayout) panelCentral.getLayout();
+        CardLayout cl = (CardLayout) panelCentral.getLayout(); //CardLayout se usa para mostrar los paneles segun el boton presionado
 
         b1.addActionListener(e -> {
             panel_dashboard.setButtons("clientes");
@@ -168,7 +169,13 @@ class MainPanel extends JPanel{
             panel_dashboard.updateProductsData();
             cl.show(panelCentral, "DASHBOARD");
         });
-        b3.addActionListener(e -> cl.show(panelCentral, "VENTAS"));
+        b3.addActionListener(e -> {
+            panelVentas.setProductos(panel_dashboard.getProductos());
+            panelVentas.uploadSalesData();
+            panelVentas.updateSalesData();
+            panelVentas.setLabelsData();
+            cl.show(panelCentral, "VENTAS");
+        });
 
         //agregando los paneles al panel principal
         add(panelIzquierdo, BorderLayout.WEST);
