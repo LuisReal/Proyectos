@@ -1,0 +1,6 @@
+NOTA: Este proyecto solo funciona al usar un servidor, en este caso se usa Live Server de visual studio code.
+
+Las credenciales del administrador son: usarname EDD  contraseña 123
+
+NOTA: es necesario cargar los 5 archivos que están en la carpeta Archivos carga mediante el botón cargar en la sección del administrador, principalmente si se quiere visualizar la lista de listas primero cargar artistas.json y luego musica.json
+

@@ -1,0 +1,7 @@
+NOTA: Este proyecto solo funciona al usar un servidor, en este caso se usa Live Server de visual studio code.
+
+Las credenciales del administrador son: usarname EDD  contraseña 123
+
+NOTA: es necesario cargar los 4 archivos que están en la carpeta Archivos carga mediante el botón cargar archivo en la sección del administrador para poder visualizar todas las estructuras de datos.
+
+El objetivo de este proyecto es mostrar las diferentes estructuras de datos y funcionamiento, este proyecto no se enfoca en la seguridad de los datos, ya que estos fueron generados aleatoriamente.
