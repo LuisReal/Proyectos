@@ -1,0 +1,4 @@
+[{"id_pelicula":9880,"nombre_pelicula":"Avatar","descripcion":"pelicula de ciencia ficcion", "puntuacion_star":9,"precio_q":100,"paginas":90, "categoria":"ciencia ficcion"},
+{"id_pelicula":6928,"nombre_pelicula":"Predestinacion","descripcion":"viajes en el tiempo","puntuacion_star":10,"precio_q":75,"paginas":275, "categoria":"suspenso"},
+{"id_pelicula":3254,"nombre_pelicula":"Interstellar","descripcion":"astronautas viajan al espacio","puntuacion_star":10,"precio_q":220,"paginas":87, "categoria":"ciencia ficcion"},
+{"id_pelicula":5081,"nombre_pelicula":"Transformers","descripcion":"robots avanzados","puntuacion_star":9,"precio_q":115,"paginas":115, "categoria":"ciencia ficcion"}]
