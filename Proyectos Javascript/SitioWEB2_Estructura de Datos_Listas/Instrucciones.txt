@@ -1,6 +1,8 @@
-NOTA: Este proyecto solo funciona al usar un servidor, en este caso se usa Live Server de visual studio code.
-
-Las credenciales del administrador son: usarname EDD  contraseña 123
+NOTA: Las credenciales del administrador son: usarname EDD  contraseña 123 Y la de uno de los usuarios es usuario mcordelet0 contraseña Ea7QiwN.
 
 NOTA: es necesario cargar los 5 archivos que están en la carpeta Archivos carga mediante el botón cargar en la sección del administrador, principalmente si se quiere visualizar la lista de listas primero cargar artistas.json y luego musica.json
 
+El objetivo de este proyecto es mostrar las diferentes estructuras de datos y funcionamiento, este proyecto no se enfoca en la seguridad de los datos, ya que estos fueron generados aleatoriamente.
+
+Si desea visitar el sitio web del proyecto puede ir al siguiente enlace:
+https://luisreal.github.io/EstructuraDatos1/
