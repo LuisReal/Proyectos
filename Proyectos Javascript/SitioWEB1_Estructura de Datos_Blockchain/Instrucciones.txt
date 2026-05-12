@@ -1,6 +1,4 @@
-NOTA: Este proyecto solo funciona al usar un servidor, en este caso se usa Live Server de visual studio code.
-
-Las credenciales del administrador son: usarname EDD  contraseña 123
+NOTA: Las credenciales del administrador son: usuario EDD  contraseña 123,  y la de uno de los usuarios es usuario mc0 contraseña 123.
 
 NOTA: es necesario cargar los 4 archivos que están en la carpeta Archivos carga mediante el botón cargar archivo en la sección del administrador para poder visualizar todas las estructuras de datos.
 
