@@ -5,4 +5,4 @@ NOTA: es necesario cargar los 4 archivos que están en la carpeta Archivos carga
 El objetivo de este proyecto es mostrar las diferentes estructuras de datos y funcionamiento, este proyecto no se enfoca en la seguridad de los datos, ya que estos fueron generados aleatoriamente.
 
 Si desea visitar el sitio web del proyecto puede ir al siguiente enlace:
-https://luisreal.github.io/EstructuraDatos1/
+https://estructuradatos1-blockchain.s3.us-east-2.amazonaws.com/index.html

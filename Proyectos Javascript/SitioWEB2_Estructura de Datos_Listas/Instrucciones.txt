@@ -1,8 +1,8 @@
-NOTA: Las credenciales del administrador son: usarname EDD  contraseña 123 Y la de uno de los usuarios es usuario mcordelet0 contraseña Ea7QiwN.
+NOTA: Las credenciales del administrador son: usuario EDD  contraseña 123 Y la de uno de los usuarios es usuario mcordelet0 contraseña Ea7QiwN.
 
 NOTA: es necesario cargar los 5 archivos que están en la carpeta Archivos carga mediante el botón cargar en la sección del administrador, principalmente si se quiere visualizar la lista de listas primero cargar artistas.json y luego musica.json
 
 El objetivo de este proyecto es mostrar las diferentes estructuras de datos y funcionamiento, este proyecto no se enfoca en la seguridad de los datos, ya que estos fueron generados aleatoriamente.
 
 Si desea visitar el sitio web del proyecto puede ir al siguiente enlace:
-https://luisreal.github.io/EstructuraDatos1/
+https://estructuradatos2-listas.s3.us-east-2.amazonaws.com/index.html
